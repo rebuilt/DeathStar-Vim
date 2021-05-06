@@ -33,15 +33,12 @@ local luaFormat = {
     formatStdin = true
 }
 
-local lua_fmt = {
-    formatCommand = "luafmt --indent-count 2 --line-width 120 --stdin",
-    formatStdin = true
-}
+local lua_fmt = {formatCommand = "luafmt --indent-count 2 --line-width 120 --stdin", formatStdin = true}
 
 if O.lua.formatter == 'lua-format' then
-  table.insert(lua_arguments, luaFormat)
+    table.insert(lua_arguments, luaFormat)
 elseif O.lua.formatter == 'lua-fmt' then
-  table.insert(lua_arguments, lua_fmt)
+    table.insert(lua_arguments, lua_fmt)
 end
 
 -- sh
@@ -90,19 +87,24 @@ local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --t
 
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
-    cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
+    -- cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
+    cmd = {"/usr/bin/efm-langserver"},
     init_options = {documentFormatting = true, codeAction = false},
-    filetypes = {"lua", "python", "javascriptreact", "javascript", "typescript","typescriptreact","sh", "html", "css", "json", "yaml", "markdown", "vue"},
+    filetypes = {
+        "ruby","lua", "python", "javascriptreact", "javascript", "typescript", "typescriptreact", "sh", "html", "css", "json",
+        "yaml", "markdown", "vue"
+    },
     settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = {".git/" },
+	    -- root_dir = require'lspconfig'.util.root_pattern(".git"),
         languages = {
             python = python_arguments,
             lua = lua_arguments,
             sh = sh_arguments,
             javascript = tsserver_args,
             javascriptreact = tsserver_args,
-			typescript = tsserver_args,
-			typescriptreact = tsserver_args,
+            typescript = tsserver_args,
+            typescriptreact = tsserver_args,
             html = {prettier},
             css = {prettier},
             json = {prettier},

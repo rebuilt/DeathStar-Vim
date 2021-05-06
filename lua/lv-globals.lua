@@ -61,7 +61,7 @@ O = {
     clang = {diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true}},
 	ruby = {
 		diagnostics = {virtualtext = {spacing = 0, prefix = ""}, signs = true, underline = true},
-		filetypes = {'rb', 'erb', 'rakefile'}
+		filetypes = {'ruby','rb', 'erb', 'rakefile'}
 	},
     -- css = {formatter = '', autoformat = false, virtual_text = true},
     -- json = {formatter = '', autoformat = false, virtual_text = true}
