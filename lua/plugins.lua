@@ -109,7 +109,22 @@ return require("packer").startup(
 
 		-- User Plugins
 
-        -- use {"romgrk/barbar.nvim", opt = true}
+        use {"liuchengxu/vista.vim", opt = true}
+        use {"tpope/vim-repeat", opt = true}
+        use {"tpope/vim-surround", opt = true}
+        use {"tpope/vim-fugitive", opt = true}
+        use {"norcalli/nvim-colorizer.lua"}
+        use {"unblevable/quick-scope", opt = true}
+        use {"airblade/vim-gitgutter", opt = true}
+        use {"airblade/vim-rooter", opt = true}
 
+        require_plugin("vista.vim")
+        require_plugin("vim-repeat")
+        require_plugin("vim-surround")
+        require_plugin("vim-fugitive")
+        require_plugin("nvim-colorizer")
+        require_plugin("quick-scope")
+        require_plugin("vim-gitgutter")
+        require_plugin("vim-rooter")
     end
 )
