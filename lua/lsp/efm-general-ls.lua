@@ -89,14 +89,14 @@ require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     -- cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
     cmd = {"/usr/bin/efm-langserver"},
-    init_options = {documentFormatting = true, codeAction = false},
+    -- init_options = {documentFormatting = true, codeAction = false},
     filetypes = {
-        "ruby","lua", "python", "javascriptreact", "javascript", "typescript", "typescriptreact", "sh", "html", "css", "json",
-        "yaml", "markdown", "vue"
+        "lua", "python", "javascriptreact", "javascript", "typescript", "typescriptreact", "sh", "html", "css",
+        "json", "yaml", "markdown", "vue"
     },
     settings = {
-        rootMarkers = {".git/" },
-	    -- root_dir = require'lspconfig'.util.root_pattern(".git"),
+        rootMarkers = {".git/"},
+        -- root_dir = require'lspconfig'.util.root_pattern(".git"),
         languages = {
             python = python_arguments,
             lua = lua_arguments,
@@ -114,7 +114,8 @@ require"lspconfig".efm.setup {
             -- javascript = {prettier, eslint},
             -- markdown = {markdownPandocFormat, markdownlint},
         }
-    }
+    },
+    root_dir = require"lspconfig".util.root_pattern(".git")
 }
 
 -- Also find way to toggle format on save
