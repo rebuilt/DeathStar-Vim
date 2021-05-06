@@ -1,9 +1,9 @@
 require('plugins')
 require('lv-globals')
-require('lv-utils')
-require('lv-autocommands')
-require('settings')
 vim.cmd('luafile ~/.config/nvim/lv-settings.lua')
+require('lv-utils')
+require('settings')
+require('lv-autocommands')
 require('keymappings')
 require('lv-nvimtree') -- This plugin must be required somewhere before colorscheme.  Placing it after will break navigation keymappings
 require('colorscheme') -- This plugin must be required somewhere after nvimtree. Placing it before will break navigation keymappings 
@@ -18,6 +18,7 @@ require('lv-treesitter')
 require('lv-autopairs')
 require('lv-rnvimr')
 require('lv-which-key')
+require('colorizer')
 
 -- TODO is there a way to do this without vimscript
 vim.cmd('source ~/.config/nvim/vimscript/functions.vim')
