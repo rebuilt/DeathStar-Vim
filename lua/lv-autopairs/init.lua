@@ -111,11 +111,11 @@ local ts_conds = require('nvim-autopairs.ts-conds')
 --     :with_pair(ts_conds.is_not_ts_node({'function'}))
 -- })
 local cond = require('nvim-autopairs.conds')
-require('nvim-autopairs').remove_rule("(")
-npairs.add_rules({
-	Rule("(", ")", "ruby")
-		:with_pair(cond.not_before_regex_check("xxx", 3))
-})
+-- require('nvim-autopairs').remove_rule("(")
+-- npairs.add_rules({
+-- 	Rule("(", ")", "ruby")
+-- 		:with_pair(cond.not_before_regex_check("xxx", 3))
+-- })
 local endwise = require('nvim-autopairs.ts-rule').endwise
 -- endwise rules
 
