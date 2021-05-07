@@ -33,9 +33,24 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
-    use {"neovim/nvim-lspconfig", opt = true}
-    use {"glepnir/lspsaga.nvim", opt = true}
-    use {"kabouzeid/nvim-lspinstall", opt = true}
+    use {
+        "neovim/nvim-lspconfig",
+        opt = true,
+        cond = function()
+            return P.lspconfig.enabled
+        end
+    }
+    use {
+        "glepnir/lspsaga.nvim",
+        opt = true,
+        cond = function()
+            return P.lspsaga.enabled
+        end
+    }
+    use {"kabouzeid/nvim-lspinstall", opt = true, cond = function ()
+    return P.lspinstall.enabled
+        
+    end}
 
     -- Telescope
     use {"nvim-lua/popup.nvim", opt = true}
@@ -66,17 +81,21 @@ return require("packer").startup(function(use)
         "folke/which-key.nvim",
         opt = true,
         cond = function()
-            return P.whichkey.enable
+            return P.whichkey.enabled
         end,
-		config = function() require'lv-which-key' end,
+        config = function()
+            require 'lv-which-key'
+        end
     }
     use {
         "ChristianChiarulli/dashboard-nvim",
         opt = true,
         cond = function()
-            return P.dashboard.enable
+            return P.dashboard.enabled
         end,
-		config = function() require'lv-dashboard' end,
+        config = function()
+            require 'lv-dashboard'
+        end
     }
     use {"windwp/nvim-autopairs", opt = true}
     use {"terrortylor/nvim-comment", opt = true}
@@ -106,8 +125,8 @@ return require("packer").startup(function(use)
     require_plugin("nvim-ts-autotag")
     -- require_plugin("nvim-tree.lua")
     require_plugin("gitsigns.nvim")
-    if (P.whichkey.enable) then require_plugin("which-key.nvim") end
-    if (P.dashboard.enable) then require_plugin("dashboard-nvim") end
+    if (P.whichkey.enabled) then require_plugin("which-key.nvim") end
+    if (P.dashboard.enabled) then require_plugin("dashboard-nvim") end
     require_plugin("nvim-autopairs")
     require_plugin("nvim-comment")
     require_plugin("nvim-bqf")
@@ -124,7 +143,7 @@ return require("packer").startup(function(use)
     use {"tpope/vim-fugitive", opt = true}
     use {"norcalli/nvim-colorizer.lua"}
     use {"unblevable/quick-scope", opt = true}
-    use {"airblade/vim-gitgutter", opt = true}
+    -- use {"airblade/vim-gitgutter", opt = true}
     use {"airblade/vim-rooter", opt = true}
     use {"nvim-treesitter/playground", opt = true}
 
@@ -134,7 +153,7 @@ return require("packer").startup(function(use)
     require_plugin("vim-fugitive")
     require_plugin("nvim-colorizer")
     require_plugin("quick-scope")
-    require_plugin("vim-gitgutter")
+    -- require_plugin("vim-gitgutter")
     require_plugin("vim-rooter")
     require_plugin("playground")
 end)
