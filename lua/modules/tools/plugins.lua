@@ -38,8 +38,7 @@ tools['iamcco/markdown-preview.nvim'] = {
   end
 }
 
-tools['tpope/vim-fugitive'] = { }
--- tools['folke/which-key.nvim'] = {
+tools['tpope/vim-fugitive'] = { } -- tools['folke/which-key.nvim'] = {
 --   cmd = 'WhichKey',
 --   
 --   config = conf.which_key
