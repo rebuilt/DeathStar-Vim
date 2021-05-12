@@ -5,6 +5,10 @@ completion['neovim/nvim-lspconfig'] = {
   event = 'BufReadPre',
   config = conf.nvim_lsp,
 }
+completion['kabouzeid/nvim-lspinstall'] = {
+  event = 'BufReadPre',
+  config = conf.nvim_lspinstall,
+}
 
 completion['glepnir/lspsaga.nvim'] = {
   cmd = 'Lspsaga',
