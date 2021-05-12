@@ -38,4 +38,10 @@ tools['iamcco/markdown-preview.nvim'] = {
   end
 }
 
+-- tools['folke/which-key.nvim'] = {
+--   cmd = 'WhichKey',
+--   
+--   config = conf.which_key
+-- }
+
 return tools
