@@ -1,12 +1,8 @@
 local ui = {}
 local conf = require('modules.ui.config')
 
-ui['glepnir/zephyr-nvim'] = {
-  config = [[vim.cmd('colorscheme zephyr')]]
-}
-
-ui['glepnir/dashboard-nvim'] = {
-  config = conf.dashboard
+ui['christianchiarulli/nvcode-color-schemes.vim'] = {
+  config = [[vim.cmd('colorscheme lunar')]]
 }
 
 ui['glepnir/galaxyline.nvim'] = {
@@ -20,7 +16,6 @@ ui['lukas-reineke/indent-blankline.nvim'] = {
   branch = 'lua',
   config = conf.indent_blakline
 }
-
 
 ui['akinsho/nvim-bufferline.lua'] = {
   config = conf.nvim_bufferline,
