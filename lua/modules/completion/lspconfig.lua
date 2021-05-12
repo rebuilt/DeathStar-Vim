@@ -95,6 +95,9 @@ lspconfig.clangd.setup {
     "--header-insertion=iwyu",
   },
 }
+lspconfig.solargraph.setup {
+
+}
 
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
