@@ -103,6 +103,7 @@ local function load_options()
     wrap           = false;
     linebreak      = true;
     number         = true;
+    relativenumber = true;
     colorcolumn    = "80";
     foldenable     = true;
     signcolumn     = "yes";
