@@ -1,7 +1,8 @@
 local vim,api = vim,vim.api
 local M = {
   go = {'go run ','go test '};
-  lua = {'lua '}
+  lua = {'lua '};
+  rb = {'ruby '}
 }
 
 function M.run_command()
@@ -19,9 +20,14 @@ function M.run_command()
   else
     cmd = M[file_type][1]
   end
-  local output_list = vim.fn.split(vim.fn.system(cmd..file_name),'\n')
-  for _,v in ipairs(output_list) do
-    print(v)
-  end
+
+local floaterm = require('lspsaga.floaterm')
+floaterm.open_float_terminal(cmd.. file_name)
+
+--   local output_list = vim.fn.split(vim.fn.system(cmd..file_name),'\n')
+--   for _,v in ipairs(output_list) do
+--     print(v)
+--   end
 end
 
+return M
