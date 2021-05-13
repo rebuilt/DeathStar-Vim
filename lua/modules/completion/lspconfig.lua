@@ -1,3 +1,4 @@
+local vim = vim
 local api = vim.api
 local lspconfig = require 'lspconfig'
 local global = require 'core.global'
@@ -61,9 +62,9 @@ lspconfig.gopls.setup {
 
 lspconfig.sumneko_lua.setup {
   cmd = {
-    global.home.."/lspinstall/lua/sumneko_lua-language-server",
+    global.home.."/.local/share/nvim/lspinstall/lua/sumneko-lua-language-server",
     "-E",
-    global.home.."/lspinstall/lua/main.lua"
+    global.home.."/.local/share/nvim/lspinstall/lua/main.lua"
   };
   settings = {
     Lua = {
@@ -98,7 +99,21 @@ lspconfig.clangd.setup {
 lspconfig.solargraph.setup {
 
 }
+lspconfig.texlab.setup{}
 
+lspconfig.html.setup{}
+
+require'lspconfig/configs'.emmet_ls = {
+  default_config = {
+    cmd = {'emmet-ls', '--stdio'},
+    filetypes = {'html', 'css'},
+    root_dir = require'lspconfig'.util.root_pattern(".git", vim.fn.getcwd()),
+  }
+}
+
+lspconfig.emmet_ls.setup{
+  on_attach = on_attach;
+}
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
 }

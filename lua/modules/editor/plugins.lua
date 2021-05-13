@@ -44,4 +44,6 @@ editor['kana/vim-niceblock']  = {
   opt = true
 }
 
+editor['airblade/vim-rooter'] = { }
+
 return editor
