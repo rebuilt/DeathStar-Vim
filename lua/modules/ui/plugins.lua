@@ -34,4 +34,9 @@ ui['lewis6991/gitsigns.nvim'] = {
   requires = {'nvim-lua/plenary.nvim',opt=true}
 }
 
+ui['folke/which-key.nvim'] = {
+  event = {'BufRead','BufNewFile'},
+  config = conf.which_key,
+}
+
 return ui

@@ -48,9 +48,7 @@ function config.auto_pairs()
 
   remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
 
---   local endwise = require('nvim-autopairs.ts-rule').endwise
-  local tsrule = require('nvim-autopairs.ts-rule')
-  local endwise = tsrule.endwise
+  local endwise = require('nvim-autopairs.ts-rule').endwise
 
   npairs.add_rules({
     endwise('def', 'end',nil,nil),

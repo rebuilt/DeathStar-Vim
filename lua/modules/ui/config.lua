@@ -9,7 +9,7 @@ function config.nvim_bufferline()
     options = {
       modified_icon = '✥',
       buffer_close_icon = '',
-      mappings = true,
+      mappings = false,
       always_show_bufferline = false,
     }
   }
@@ -154,6 +154,51 @@ function config.indent_blakline()
   }
   -- because lazy load indent-blankline so need readd this autocmd
   vim.cmd('autocmd CursorMoved * IndentBlanklineRefresh')
+end
+
+function config.which_key()
+local wk = require("which-key")
+wk.setup{}
+
+wk.register({
+l = {
+  name = "LSP",
+},
+g = {
+  name = "Git",
+},
+p ={
+name = "Packer",
+},
+b = {
+  name = "Buffer",
+},
+c = {
+  name = "Template",
+},
+f = {
+  name = "Find",
+},
+m = {
+  name = "Marks",
+},
+o = {
+  name = "Open",
+},
+v = {
+  name = "Vista",
+},
+r = {
+  name = "Run",
+},
+e = {
+  name = "Tree",
+},
+F = {
+  name = "FindFile",
+}
+}, {prefix = "<leader>"})
+
 end
 
 return config
