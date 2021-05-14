@@ -106,6 +106,8 @@ local plug_map = {
   ["n|<leader>gb"]              = map_cr("Telescope git_branches"):with_silent(),
   ["n|<leader>gg"]              = map_cr("Telescope git_commits"):with_silent(),
   ["n|<leader>gG"]              = map_cr("Telescope git_bcommits"):with_silent(),
+  ["n|<S-x>"]              = map_cr(":bd"):with_silent(),
+
 
 };
 

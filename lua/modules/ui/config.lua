@@ -194,9 +194,9 @@ r = {
 e = {
   name = "Tree",
 },
-F = {
-  name = "FindFile",
-}
+h = {
+  name = "Hunks",
+},
 }, {prefix = "<leader>"})
 
 end

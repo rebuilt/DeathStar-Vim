@@ -41,7 +41,7 @@ local function load_options()
     shiftround     = true;
     timeout        = true;
     ttimeout       = true;
-    timeoutlen     = 900;
+    timeoutlen     = 1000;
     ttimeoutlen    = 10;
     updatetime     = 100;
     redrawtime     = 1500;
