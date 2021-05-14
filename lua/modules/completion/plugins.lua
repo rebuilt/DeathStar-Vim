@@ -6,8 +6,13 @@ completion['neovim/nvim-lspconfig'] = {
   config = conf.nvim_lsp,
 }
 completion['kabouzeid/nvim-lspinstall'] = {
-  event = 'BufReadPre',
+  after = 'nvim-lspconfig',
   config = conf.nvim_lspinstall,
+}
+completion['windwp/nvim-autopairs'] = {
+  event = 'InsertEnter',
+  config = conf.auto_pairs,
+  after = 'nvim-treesitter',
 }
 
 completion['glepnir/lspsaga.nvim'] = {
