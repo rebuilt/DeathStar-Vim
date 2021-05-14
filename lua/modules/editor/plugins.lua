@@ -1,10 +1,10 @@
 local editor = {}
 local conf = require('modules.editor.config')
 
-editor['Raimondi/delimitMate'] = {
-  event = 'InsertEnter',
-  config = conf.delimimate,
-}
+-- editor['Raimondi/delimitMate'] = {
+--   event = 'InsertEnter',
+--   config = conf.delimimate,
+-- }
 
 editor['rhysd/accelerated-jk'] = {
   opt = true
