@@ -34,11 +34,12 @@ tools['liuchengxu/vista.vim'] = {
 tools['iamcco/markdown-preview.nvim'] = {
   ft = 'markdown',
   config = function ()
-    vim.g.mkdp_auto_start = 0
+    vim.g.mkdp_auto_start = 1
   end
 }
 
-tools['tpope/vim-fugitive'] = { } -- tools['folke/which-key.nvim'] = {
+tools['tpope/vim-fugitive'] = { } 
+-- tools['folke/which-key.nvim'] = {
 --   cmd = 'WhichKey',
 --   
 --   config = conf.which_key

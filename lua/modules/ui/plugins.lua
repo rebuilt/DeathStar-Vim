@@ -35,7 +35,7 @@ ui['lewis6991/gitsigns.nvim'] = {
 }
 
 ui['folke/which-key.nvim'] = {
---   event = {'BufRead','BufNewFile'},
+  event = {'BufEnter'},
   config = conf.which_key,
 }
 
