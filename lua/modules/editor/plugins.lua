@@ -46,4 +46,9 @@ editor['kana/vim-niceblock']  = {
 
 editor['airblade/vim-rooter'] = { }
 
+editor['ngmy/vim-rubocop'] = {
+  cmd = 'RuboCop';
+  ft = {"ruby", "erb"}
+}
+
 return editor
