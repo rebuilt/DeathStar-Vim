@@ -1,4 +1,4 @@
-local vim =             vim
+local vim = vim
 local api = vim.api
 local lspconfig = require 'lspconfig'
 local global = require 'core.global'
@@ -97,6 +97,7 @@ lspconfig.rust_analyzer.setup {
 
 lspconfig.solargraph.setup {}
 
+
 local servers = {
   'dockerls',
   'bashls',
@@ -104,7 +105,6 @@ local servers = {
   'solargraph',
   'emmet_ls',
   'html',
-  'efm'
 }
 
 for _,server in ipairs(servers) do
