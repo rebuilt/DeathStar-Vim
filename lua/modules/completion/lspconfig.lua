@@ -30,17 +30,17 @@ vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
 vim.cmd('command! -nargs=0 LspRestart call v:lua.reload_lsp()')
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- Enable underline, use default values
-    underline = true,
-    -- Enable virtual text, override spacing to 4
-    virtual_text = true,
-    signs = {
-      enable = true,
-      priority = 20
-    },
-    -- Disable a feature
-    update_in_insert = false,
+vim.lsp.diagnostic.on_publish_diagnostics, {
+  -- Enable underline, use default values
+  underline = true,
+  -- Enable virtual text, override spacing to 4
+  virtual_text = true,
+  signs = {
+    enable = true,
+    priority = 20
+  },
+  -- Disable a feature
+  update_in_insert = false,
 })
 
 local enhance_attach = function(client,bufnr)
@@ -96,12 +96,8 @@ lspconfig.clangd.setup {
     "--header-insertion=iwyu",
   },
 }
-lspconfig.solargraph.setup {
 
-}
 lspconfig.texlab.setup{}
-
-lspconfig.html.setup{}
 
 require'lspconfig/configs'.emmet_ls = {
   default_config = {
@@ -111,15 +107,30 @@ require'lspconfig/configs'.emmet_ls = {
   }
 }
 
-lspconfig.emmet_ls.setup{
-  on_attach = on_attach;
-}
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
+-- lspconfig.efm.setup{
+--   cmd = {"/home/nelson/.local/share/nvim/lspinstall/efm/efm-langserver"},
+--   init_options = {documentFormatting = true, codeAction = false},
+--   filetypes = {"lua", "ruby"},
+--   settings = {
+--     rootMarkers = {".git/"},
+--     languages = {
+--       lua =  {formatCommand = "lua-format -i", formatStdin = true},
+--       ruby = {formatCommand = "rubocop --format", formatStdin = true},
+--     }
+--   }
+-- }
+
 local servers = {
-  'dockerls','bashls','pyright'
+  'dockerls',
+  'bashls',
+  'pyright',
+  'solargraph',
+  'emmet_ls',
+  'sumneko_lua'
 }
 
 for _,server in ipairs(servers) do

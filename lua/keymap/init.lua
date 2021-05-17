@@ -36,7 +36,7 @@ local plug_map = {
   ["n|<Leader>lt"]             = map_cmd("<cmd>lua vim.lsp.buf.type_definition()<CR>"):with_noremap():with_silent(),
   ["n|<Leader>lw"]     = map_cmd("<cmd>lua vim.lsp.buf.workspace_symbol()<CR>"):with_noremap():with_silent(),
   ["n|<Leader>le"]     = map_cr('Lspsaga show_line_diagnostics'):with_noremap():with_silent(),
-  ["n|<leader>lf"]     = map_cr('<cmd>lua vim.lsp.buf.formatting()'):with_noremap():with_silent(),
+  ["n|<leader>lf"]     = map_cr('<cmd>lua vim.lsp.buf.formatting()<CR>'):with_noremap():with_silent(),
   ["n|<Leader>ct"]      = map_args("Template"),
   -- Plugin nvim-tree
   ["n|<Leader>e"]      = map_cr('NvimTreeToggle'):with_noremap():with_silent(),
