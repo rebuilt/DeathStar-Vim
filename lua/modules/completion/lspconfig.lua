@@ -1,4 +1,4 @@
-local vim = vim
+local vim =             vim
 local api = vim.api
 local lspconfig = require 'lspconfig'
 local global = require 'core.global'
@@ -60,26 +60,6 @@ lspconfig.gopls.setup {
   }
 }
 
-lspconfig.sumneko_lua.setup {
-  cmd = {
-    global.home.."/.local/share/nvim/lspinstall/lua/sumneko-lua-language-server",
-    "-E",
-    global.home.."/.local/share/nvim/lspinstall/lua/main.lua"
-  };
-  settings = {
-    Lua = {
-      diagnostics = {
-        enable = true,
-        globals = {"vim","packer_plugins"}
-      },
-      runtime = {version = "LuaJIT"},
-      workspace = {
-        library = vim.list_extend({[vim.fn.expand("$VIMRUNTIME/lua")] = true},{}),
-      },
-    },
-  }
-}
-
 lspconfig.tsserver.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
@@ -107,22 +87,15 @@ require'lspconfig/configs'.emmet_ls = {
   }
 }
 
+lspconfig.html.setup {
+  capabilities = capabilities
+}
+
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
--- lspconfig.efm.setup{
---   cmd = {"/home/nelson/.local/share/nvim/lspinstall/efm/efm-langserver"},
---   init_options = {documentFormatting = true, codeAction = false},
---   filetypes = {"lua", "ruby"},
---   settings = {
---     rootMarkers = {".git/"},
---     languages = {
---       lua =  {formatCommand = "lua-format -i", formatStdin = true},
---       ruby = {formatCommand = "rubocop --format", formatStdin = true},
---     }
---   }
--- }
+lspconfig.solargraph.setup {}
 
 local servers = {
   'dockerls',
@@ -130,7 +103,8 @@ local servers = {
   'pyright',
   'solargraph',
   'emmet_ls',
-  'sumneko_lua'
+  'html',
+  'efm'
 }
 
 for _,server in ipairs(servers) do
