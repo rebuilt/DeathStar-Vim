@@ -111,10 +111,12 @@ end
 function config.nvim_lspinstall()
 	require'lspinstall'.setup() -- important
 
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
-		require'lspconfig'[server].setup{on_attach = enhance_attach}
-	end
+-- 	local servers = require'lspinstall'.installed_servers()
+-- 	for _, server in pairs(servers) do
+--     if (server ~= 'ruby' and server ~= 'lua' and server ~= 'efm') then
+-- 		require'lspconfig'[server].setup{on_attach = enhance_attach}
+--   end
+-- 	end
 end
 
 return config

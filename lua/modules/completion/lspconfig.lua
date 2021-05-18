@@ -95,8 +95,54 @@ lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
-lspconfig.solargraph.setup {}
 
+USER = vim.fn.expand('$USER')
+
+local sumneko_root_path = "/home/" .. USER .. "/.local/share/nvim/lspinstall/lua/"
+local sumneko_binary = "/home/" .. USER .. "/.local/share/nvim/lspinstall/lua/sumneko-lua-language-server"
+
+lspconfig.sumneko_lua.setup {
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = vim.split(package.path, ';')
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'}
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+            }
+        }
+    }
+}
+
+lspconfig.efm.setup {
+  cmd = {"/home/" .. USER .. "/.local/share/nvim/lspinstall/efm/efm-langserver"},
+    init_options = {documentFormatting = true},
+    filetypes = {"lua"},
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            lua = {
+                {
+                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
+                    formatStdin = true
+                }
+            }
+        }
+    }
+}
+
+vim.cmd([[
+autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
+]])
 
 local servers = {
   'dockerls',
@@ -109,6 +155,6 @@ local servers = {
 
 for _,server in ipairs(servers) do
   lspconfig[server].setup {
-    on_attach = enhance_attach
-  }
+        on_attach = enhance_attach,
+      }
 end
