@@ -1,27 +1,23 @@
 local tools = {}
-local conf = require('modules.tools.config')
+local conf = require("modules.tools.config")
 
-tools['kristijanhusak/vim-dadbod-ui'] = {
-  cmd = {'DBUIToggle','DBUIAddConnection','DBUI','DBUIFindBuffer','DBUIRenameBuffer'},
-  config = conf.vim_dadbod_ui,
-  requires = {{'tpope/vim-dadbod',opt = true}}
+tools["kristijanhusak/vim-dadbod-ui"] = {
+    cmd = {"DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer"},
+    config = conf.vim_dadbod_ui,
+    requires = {{"tpope/vim-dadbod", opt = true}}
 }
 
--- tools['editorconfig/editorconfig-vim'] = {
---   ft = { 'go','typescript','javascript','vim','rust','zig','c','cpp' }
--- }
-
-tools['glepnir/prodoc.nvim'] = {
-  event = 'BufReadPre'
+tools["glepnir/prodoc.nvim"] = {
+    event = "BufReadPre"
 }
 
-tools['unblevable/quick-scope'] = {
-  event = 'BufReadPre'
+tools["unblevable/quick-scope"] = {
+    event = "BufEnter"
 }
 
-tools['liuchengxu/vista.vim'] = {
-  cmd = 'Vista',
-  config = conf.vim_vista
+tools["liuchengxu/vista.vim"] = {
+    cmd = "Vista",
+    config = conf.vim_vista
 }
 
 -- tools['brooth/far.vim'] = {
