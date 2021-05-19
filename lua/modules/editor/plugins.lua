@@ -15,13 +15,6 @@ editor["itchyny/vim-cursorword"] = {
     config = conf.vim_cursorwod
 }
 
-editor["hrsh7th/vim-eft"] = {
-    opt = true,
-    config = function()
-        vim.g.eft_ignorecase = true
-    end
-}
-
 editor["kana/vim-operator-replace"] = {
     keys = {{"x", "p"}},
     config = function()
