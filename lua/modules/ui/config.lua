@@ -207,6 +207,9 @@ function config.which_key()
             },
             R = {
                 name = "Registers"
+            },
+            x = {
+                name = "Trouble"
             }
         },
         {prefix = "<leader>"}
@@ -236,6 +239,10 @@ function config.bqf()
             }
         }
     )
+end
+
+function config.trouble()
+    require("trouble").setup {}
 end
 
 return config

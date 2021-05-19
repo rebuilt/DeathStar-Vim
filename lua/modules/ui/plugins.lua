@@ -54,7 +54,8 @@ ui["kevinhwang91/nvim-bqf"] = {
     config = conf.bqf
 }
 
--- ui["folke/trouble.nvim"] = {
---     event = "BufEnter"
--- }
+ui["folke/trouble.nvim"] = {
+    requires = "kyazdani42/nvim-web-devicons",
+    config = conf.trouble
+}
 return ui
