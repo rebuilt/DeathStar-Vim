@@ -103,11 +103,17 @@ local plug_map = {
     ["n|<leader>gg"] = map_cr("Telescope git_commits"):with_silent(),
     ["n|<leader>gG"] = map_cr("Telescope git_bcommits"):with_silent(),
     ["n|<S-x>"] = map_cr(":bd"):with_silent(),
-    ["n|<leader>s"] = map_cr(":source $MYVIMRC"):with_silent():with_noremap(),
     -- Markdown
     ["n|<leader>mg"] = map_cr(":Glow"):with_silent():with_noremap(),
     ["n|<leader>mv"] = map_cr(":MarkdownPreview"):with_silent():with_noremap(),
-    ["n|<leader>R"] = map_cr(":Telescope registers"):with_silent():with_noremap()
+    ["n|<leader>R"] = map_cr(":Telescope registers"):with_silent():with_noremap(),
+    -- Trouble
+    ["n|<leader>xx"] = map_cr(":TroubleToggle"):with_silent():with_noremap(),
+    ["n|<leader>xw"] = map_cr(":TroubleToggle lsp_workspace_diagnostics"):with_silent():with_noremap(),
+    ["n|<leader>xd"] = map_cr(":TroubleToggle lsp_document_diagnostics"):with_silent():with_noremap(),
+    ["n|<leader>xq"] = map_cr(":TroubleToggle quickfix"):with_silent():with_noremap(),
+    ["n|<leader>xl"] = map_cr(":TroubleToggle loclist"):with_silent():with_noremap(),
+    ["n|<leader>gR"] = map_cr(":TroubleToggle lsp_references"):with_silent():with_noremap()
 }
 
 bind.nvim_load_mapping(plug_map)
