@@ -167,59 +167,96 @@ function config.which_key()
     wk.register(
         {
             l = {
-                name = "LSP"
+                name = "LSP",
+                i = {"<cmd>LspInfo<cr>", "LspInfo"},
+                l = {"<cmd>LspLog<cr>", "LspLog"},
+                r = {"<cmd>Lspsaga rename<cr>", "Rename"},
+                a = {"<cmd>Lspsaga code_action<cr>", "Code Action"},
+                d = {"<cmd>Lspsaga preview_definition<cr>", "Definition"},
+                D = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation"},
+                s = {"<cmd>Lspsaga signature_help<cr>", "Signature Help"},
+                h = {"<cmd>Lspsaga lsp_finder<cr>", "Lsp Finder"},
+                t = {"<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition"},
+                w = {"<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", "Workspace Symbol"},
+                e = {"<cmd>Lspsaga show_line_diagnostics<cr>", "Line Diagnostics"},
+                f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
+                R = {"<cmd>TroubleToggle lsp_refences<cr>", "References"}
             },
             g = {
-                name = "Git"
+                name = "Git",
+                l = {
+                    "<cmd>Lspsaga open_floaterm lazygit<cr>",
+                    "Lazy Git"
+                },
+                o = {
+                    "<cmd>Telescope git_status<cr>",
+                    "Lazy Git"
+                },
+                b = {
+                    "<cmd>Telescope git_branches<cr>",
+                    "Branches"
+                },
+                g = {
+                    "<cmd>Telescope git_commits<cr>",
+                    "Commits"
+                },
+                G = {
+                    "<cmd>Telescope git_bcommits<cr>",
+                    "BCommits"
+                }
             },
             p = {
-                name = "Packer"
+                name = "Packer",
+                u = {"<cmd>PackerUpdate<cr>", "Update"},
+                i = {"<cmd>PackerInstall<cr>", "Install"},
+                s = {"<cmd>PackerSync<cr>", "Sync"},
+                c = {"<cmd>PackerCompile<cr>", "Compile"}
             },
-            B = {
-                name = "Buffers"
-            },
-            c = {
-                name = "Template"
-            },
+            B = {"<cmd>Telescope buffers<cr>", "Buffers"},
             f = {
-                name = "Find"
+                name = "Find",
+                b = {"<cmd>Telescope file_browser<cr>", "File Browser"},
+                f = {"<cmd>Telescope find_files find_command=rg,--hidden,--files<cr>", "File"},
+                g = {"<cmd>Telescope git_files<cr>", "Git files"},
+                w = {"<cmd>Telescope live_grep<cr>", "Word"},
+                c = {"<cmd>Telescope git_commits<cr>", "Commits"},
+                t = {"<cmd>Telescope help_tags<cr>", "Tags"},
+                j = {"<cmd>Telescope jumplist<cr>", "Jumplist"},
+                q = {"<cmd>Telescope quickfix<cr>", "quickfix"},
+                d = {"<cmd>Telescope dotfiles path=" .. os.getenv("HOME") .. "/.dotfiles<cr>", "Neovim config"},
+                s = {"<cmd>Telescope gosource<cr>", "Go Source"}
             },
-            M = {
-                name = "Marks"
-            },
-            o = {
-                name = "Open"
-            },
-            v = {
-                name = "Vista"
-            },
+            M = {"<cmd>Telescope marks<cr>", "Marks"},
+            v = {"<cmd>Vista!!<cr>", "Vista"},
             r = {
-                name = "Run"
+                "<cmd> lua require'internal.quickrun'.run_command()<CR>",
+                "Run Command"
             },
             e = {
-                name = "Tree"
+                "<cmd>NvimTreeToggle<cr>",
+                "File Browser"
             },
             h = {
                 name = "Hunks"
             },
             m = {
-                name = "Markdown"
+                name = "Markdown",
+                v = {"<cmd>MarkdownPreview<cr>", "Markdown Preview"},
+                g = {"<cmd>Glow<cr>", "Glow"}
             },
-            R = {
-                name = "Registers"
-            },
+            R = {"<cmd>Telescope registers<cr>", "Registers"},
             x = {
-                name = "Trouble"
+                name = "Trouble",
+                x = {"<cmd>TroubleToggle<cr>", "Trouble"},
+                w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
+                d = {"<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Document Diagnostics"},
+                q = {"<cmd>TroubleToggle quickfix<cr>", "QuickFix"},
+                l = {"<cmd>TroubleToggle loclist<cr>", "LocationList"}
             },
-            Q = {
-                name = "QuickFix"
-            },
-            L = {
-                name = "Location"
-            },
-            s = {
-                name = "SpellCheck"
-            }
+            Q = {"<cmd>Telescope quickfix<cr>", "QuickFix"},
+            L = {"<cmd>Telescope loclist<cr>", "Location"},
+            s = {"<cmd>set spell<cr>", "SpellCheck"}
+            --             o = {"<cmd>DBUIToggle<cr>", "Dadbod"}
         },
         {prefix = "<leader>"}
     )
