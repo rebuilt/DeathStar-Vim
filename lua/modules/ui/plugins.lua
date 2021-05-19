@@ -58,4 +58,13 @@ ui["folke/trouble.nvim"] = {
     requires = "kyazdani42/nvim-web-devicons",
     config = conf.trouble
 }
+
+ui["phaazon/hop.nvim"] = {
+    config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        --   require "hop.nvim".setup {keys = "etovxqpdygfblzhckisuran"}
+        vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>lua require'hop'.hint_words()<cr>", {})
+        vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>lua require'hop'.hint_words()<cr>", {})
+    end
+}
 return ui
