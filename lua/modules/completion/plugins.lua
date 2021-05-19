@@ -29,14 +29,6 @@ completion["hrsh7th/vim-vsnip"] = {
     config = conf.vim_vsnip
 }
 
--- completion["hrsh7th/vim-vsnip-integ"] = {
---     after = "vim-vsnip"
--- }
---
--- completion["rafamadriz/friendly-snippets"] = {
---     after = "vim-vsnip"
--- }
-
 completion["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = conf.telescope,
@@ -46,17 +38,6 @@ completion["nvim-telescope/telescope.nvim"] = {
         {"nvim-telescope/telescope-fzy-native.nvim", opt = true}
     }
 }
-
--- completion["glepnir/smartinput.nvim"] = {
---     ft = "go",
---     config = conf.smart_input
--- }
---
--- completion["mattn/vim-sonictemplate"] = {
---     cmd = "Template",
---     ft = {"go", "typescript", "lua", "javascript", "vim", "rust", "markdown"},
---     config = conf.vim_sonictemplate
--- }
 
 completion["mattn/emmet-vim"] = {
     event = "InsertEnter",
