@@ -34,6 +34,6 @@ tools["liuchengxu/vista.vim"] = {
 --   end
 -- }
 
-tools['tpope/vim-fugitive'] = { } 
+tools["tpope/vim-fugitive"] = {}
 
 return tools
