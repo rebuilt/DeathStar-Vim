@@ -216,6 +216,9 @@ function config.which_key()
             },
             L = {
                 name = "Location"
+            },
+            s = {
+                name = "SpellCheck"
             }
         },
         {prefix = "<leader>"}
