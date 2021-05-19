@@ -115,7 +115,8 @@ local plug_map = {
     ["n|<leader>xd"] = map_cr(":TroubleToggle lsp_document_diagnostics"):with_silent():with_noremap(),
     ["n|<leader>xq"] = map_cr(":TroubleToggle quickfix"):with_silent():with_noremap(),
     ["n|<leader>xl"] = map_cr(":TroubleToggle loclist"):with_silent():with_noremap(),
-    ["n|<leader>gR"] = map_cr(":TroubleToggle lsp_references"):with_silent():with_noremap()
+    ["n|<leader>gR"] = map_cr(":TroubleToggle lsp_references"):with_silent():with_noremap(),
+    ["n|<leader>s"] = map_cr(":set spell"):with_silent():with_noremap()
 }
 
 bind.nvim_load_mapping(plug_map)
