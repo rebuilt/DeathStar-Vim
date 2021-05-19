@@ -11,7 +11,6 @@ completion["kabouzeid/nvim-lspinstall"] = {
 }
 completion["windwp/nvim-autopairs"] = {
     event = "InsertEnter",
-    -- event = 'BufEnter',
     config = conf.auto_pairs,
     after = "nvim-treesitter"
 }
