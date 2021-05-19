@@ -9,7 +9,9 @@ local plug_map = {
     ["i|<TAB>"] = map_cmd("v:lua.tab_complete()"):with_expr():with_silent(),
     ["i|<S-TAB>"] = map_cmd("v:lua.s_tab_complete()"):with_silent():with_expr(),
     -- person keymap
-    --     ["n|mf"]             = map_cr("<cmd>lua require('internal.fsevent').file_event()<CR>"):with_silent():with_nowait():with_noremap();
+    ["n|mf"] = map_cr("<cmd>lua require('internal.fsevent').file_event()<CR>"):with_silent():with_nowait():with_noremap(
+
+    ),
     ["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
     -- Packer
     ["n|<leader>pu"] = map_cr("PackerUpdate"):with_silent():with_noremap():with_nowait(),
@@ -85,15 +87,6 @@ local plug_map = {
     ["n|sa"] = map_cmd("<Plug>(operator-surround-append)"):with_silent(),
     ["n|sd"] = map_cmd("<Plug>(operator-surround-delete)"):with_silent(),
     ["n|sr"] = map_cmd("<Plug>(operator-surround-replace)"):with_silent(),
-    -- Plugin hrsh7th/vim-eft
-    ["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
-    ["x|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
-    ["n|f"] = map_cmd("v:lua.enhance_ft_move('f')"):with_expr(),
-    ["x|f"] = map_cmd("v:lua.enhance_ft_move('f')"):with_expr(),
-    ["o|f"] = map_cmd("v:lua.enhance_ft_move('f')"):with_expr(),
-    ["n|F"] = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
-    ["x|F"] = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
-    ["o|F"] = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
     -- Plugin vim_niceblock
     ["x|I"] = map_cmd("v:lua.enhance_nice_block('I')"):with_expr(),
     ["x|gI"] = map_cmd("v:lua.enhance_nice_block('gI')"):with_expr(),
