@@ -210,6 +210,12 @@ function config.which_key()
             },
             x = {
                 name = "Trouble"
+            },
+            Q = {
+                name = "QuickFix"
+            },
+            L = {
+                name = "Location"
             }
         },
         {prefix = "<leader>"}
