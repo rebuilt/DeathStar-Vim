@@ -75,7 +75,7 @@ local plug_map = {
   -- Plugin QuickRun
   ["n|<Leader>r"]     = map_cr("<cmd> lua require'internal.quickrun'.run_command()<CR>"):with_noremap():with_silent(),
   -- Plugin Vista
-  ["n|<Leader>v"]      = map_cu('Vista'):with_noremap():with_silent(),
+  ["n|<Leader>v"]      = map_cu('Vista!!'):with_noremap():with_silent(),
   -- Plugin vim-operator-surround
   ["n|sa"]             = map_cmd("<Plug>(operator-surround-append)"):with_silent(),
   ["n|sd"]             = map_cmd("<Plug>(operator-surround-delete)"):with_silent(),
@@ -107,6 +107,7 @@ local plug_map = {
   ["n|<leader>gg"]              = map_cr("Telescope git_commits"):with_silent(),
   ["n|<leader>gG"]              = map_cr("Telescope git_bcommits"):with_silent(),
   ["n|<S-x>"]              = map_cr(":bd"):with_silent(),
+  ["n|<leader>s"]              = map_cr(":source $MYVIMRC"):with_silent():with_noremap(),
 
 
 };

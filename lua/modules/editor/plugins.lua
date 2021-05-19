@@ -39,9 +39,10 @@ editor["kana/vim-niceblock"] = {
     opt = true
 }
 
-editor["airblade/vim-rooter"] = {}
+editor["airblade/vim-rooter"] = {opt = true}
 
 editor["sbdchd/neoformat"] = {
+    event = "BufRead",
     config = conf.neoformat
 }
 
