@@ -50,4 +50,11 @@ ui["davidgranstrom/nvim-markdown-preview"] = {
     ft = {"md", "markdown"}
 }
 
+ui["kevinhwang91/nvim-bqf"] = {
+    config = conf.bqf
+}
+
+-- ui["folke/trouble.nvim"] = {
+--     event = "BufEnter"
+-- }
 return ui
