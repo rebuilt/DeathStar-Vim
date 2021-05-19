@@ -13,6 +13,7 @@ local plug_map = {
 
     ),
     ["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
+    ["n|Y"] = map_cmd("y$"):with_noremap():with_silent(),
     -- Packer
     --     ["n|<leader>pu"] = map_cr("PackerUpdate"):with_silent():with_noremap():with_nowait(),
     --     ["n|<leader>pi"] = map_cr("PackerInstall"):with_silent():with_noremap():with_nowait(),
