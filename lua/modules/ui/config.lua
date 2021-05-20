@@ -216,7 +216,7 @@ function config.which_key()
             f = {
                 name = "Find",
                 b = {"<cmd>Telescope file_browser<cr>", "File Browser"},
-                f = {"<cmd>Telescope find_files find_command=rg,--hidden,--files<cr>", "File"},
+                f = {"<cmd>Telescope find_files find_command=rg,--hidden,--files prompt_prefix=🔍<cr>", "File"},
                 g = {"<cmd>Telescope git_files<cr>", "Git files"},
                 w = {"<cmd>Telescope live_grep<cr>", "Word"},
                 c = {"<cmd>Telescope git_commits<cr>", "Commits"},
