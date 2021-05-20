@@ -30,4 +30,9 @@ editor["sbdchd/neoformat"] = {
     config = conf.neoformat
 }
 
+editor["ray-x/lsp_signature.nvim"] = {
+  after = "nvim-treesitter",
+  config = function() require'lsp_signature'.on_attach() end
+}
+
 return editor
