@@ -2,30 +2,32 @@ local ui = {}
 local conf = require("modules.ui.config")
 
 ui["christianchiarulli/nvcode-color-schemes.vim"] = {
+  event = "BufEnter",
     config = [[vim.cmd('colorscheme lunar')]]
 }
 
 ui["glepnir/galaxyline.nvim"] = {
     branch = "main",
     config = conf.galaxyline,
-    requires = "kyazdani42/nvim-web-devicons"
+    requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
 }
 
-ui["lukas-reineke/indent-blankline.nvim"] = {
-    event = "BufRead",
-    branch = "lua",
-    config = conf.indent_blakline
-}
+-- ui["lukas-reineke/indent-blankline.nvim"] = {
+--     event = "BufRead",
+--     branch = "lua",
+--     config = conf.indent_blakline
+-- }
 
 ui["akinsho/nvim-bufferline.lua"] = {
+  event = "BufEnter",
     config = conf.nvim_bufferline,
-    requires = "kyazdani42/nvim-web-devicons"
+    requires = {"kyazdani42/nvim-web-devicons",event = "ColorScheme"}
 }
 
 ui["kyazdani42/nvim-tree.lua"] = {
     cmd = {"NvimTreeToggle", "NvimTreeOpen"},
     config = conf.nvim_tree,
-    requires = "kyazdani42/nvim-web-devicons"
+    requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
 }
 
 ui["lewis6991/gitsigns.nvim"] = {
@@ -35,7 +37,7 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 
 ui["folke/which-key.nvim"] = {
-    event = {"BufEnter"},
+  event = "BufEnter",
     config = conf.which_key
 }
 
@@ -51,15 +53,18 @@ ui["davidgranstrom/nvim-markdown-preview"] = {
 }
 
 ui["kevinhwang91/nvim-bqf"] = {
+  module = "nvim-treesitter",
     config = conf.bqf
 }
 
 ui["folke/trouble.nvim"] = {
-    requires = "kyazdani42/nvim-web-devicons",
+  cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"},
+    requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"},
     config = conf.trouble
 }
 
 ui["phaazon/hop.nvim"] = {
+  keys = {"<leader>hh", "<leader>H"},
     config = function()
         -- you can configure Hop the way you like here; see :h hop-config
         --   require "hop.nvim".setup {keys = "etovxqpdygfblzhckisuran"}
