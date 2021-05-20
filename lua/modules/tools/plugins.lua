@@ -12,7 +12,7 @@ tools["tpope/vim-commentary"] = {
 }
 
 tools["unblevable/quick-scope"] = {
-    event = "BufEnter"
+  keys = {"f","F","t","T"},
 }
 
 tools["liuchengxu/vista.vim"] = {
@@ -34,6 +34,8 @@ tools["liuchengxu/vista.vim"] = {
 --   end
 -- }
 
-tools["tpope/vim-fugitive"] = {}
+tools["tpope/vim-fugitive"] = {
+  cmd = {"G", "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename", "Glgrep", "Gedit"}
+}
 
 return tools
