@@ -69,10 +69,6 @@ local plug_map = {
 
     --     ),
     --     ["n|<Leader>fs"] = map_cu("Telescope gosource"):with_noremap():with_silent(),
-    -- prodoc
-    ["n|gcc"] = map_cu("ProComment"):with_noremap():with_silent(),
-    ["x|gcc"] = map_cr("ProComment"),
-    ["n|gcj"] = map_cu("ProDoc"):with_silent():with_silent(),
     -- Plugin acceleratedjk
     ["n|j"] = map_cmd('v:lua.enhance_jk_move("j")'):with_silent():with_expr(),
     ["n|k"] = map_cmd('v:lua.enhance_jk_move("k")'):with_silent():with_expr(),
@@ -80,10 +76,6 @@ local plug_map = {
     --     ["n|<Leader>r"] = map_cr("<cmd> lua require'internal.quickrun'.run_command()<CR>"):with_noremap():with_silent(),
     -- Plugin Vista
     --     ["n|<Leader>v"] = map_cu("Vista!!"):with_noremap():with_silent(),
-    -- Plugin vim-operator-surround
-    ["n|sa"] = map_cmd("<Plug>(operator-surround-append)"):with_silent(),
-    ["n|sd"] = map_cmd("<Plug>(operator-surround-delete)"):with_silent(),
-    ["n|sr"] = map_cmd("<Plug>(operator-surround-replace)"):with_silent(),
     -- Plugin vim_niceblock
     ["x|I"] = map_cmd("v:lua.enhance_nice_block('I')"):with_expr(),
     ["x|gI"] = map_cmd("v:lua.enhance_nice_block('gI')"):with_expr(),

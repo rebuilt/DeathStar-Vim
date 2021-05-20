@@ -15,17 +15,8 @@ editor["itchyny/vim-cursorword"] = {
     config = conf.vim_cursorwod
 }
 
-editor["kana/vim-operator-replace"] = {
-    keys = {{"x", "p"}},
-    config = function()
-        vim.api.nvim_set_keymap("x", "p", "<Plug>(operator-replace)", {silent = true})
-    end,
-    requires = "kana/vim-operator-user"
-}
-
-editor["rhysd/vim-operator-surround"] = {
-    event = "BufRead",
-    requires = "kana/vim-operator-user"
+editor["tpope/vim-surround"] = {
+    event = "BufRead"
 }
 
 editor["kana/vim-niceblock"] = {
