@@ -26,6 +26,9 @@ function config.nvim_compe()
 end
 
 function config.auto_pairs()
+    if not packer_plugins["telescope.nvim"].loaded then
+        vim.cmd [[packadd telescope.nvim]]
+    end
     local remap = vim.api.nvim_set_keymap
     local npairs = require("nvim-autopairs")
     npairs.setup()
@@ -64,7 +67,11 @@ end
 function config.telescope()
     if not packer_plugins["plenary.nvim"].loaded then
         vim.cmd [[packadd plenary.nvim]]
+    end
+    if not packer_plugins["popup.nvim"].loaded then
         vim.cmd [[packadd popup.nvim]]
+    end
+    if not packer_plugins["telescope-fzy-native.nvim"].loaded then
         vim.cmd [[packadd telescope-fzy-native.nvim]]
     end
     require("telescope").setup {
