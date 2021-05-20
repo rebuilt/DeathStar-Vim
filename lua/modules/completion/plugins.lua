@@ -9,11 +9,6 @@ completion["kabouzeid/nvim-lspinstall"] = {
     after = "nvim-lspconfig",
     config = conf.nvim_lspinstall
 }
-completion["windwp/nvim-autopairs"] = {
-    event = "InsertEnter",
-    config = conf.auto_pairs,
-    after = "nvim-treesitter"
-}
 
 completion["glepnir/lspsaga.nvim"] = {
     cmd = "Lspsaga"
@@ -29,13 +24,19 @@ completion["hrsh7th/vim-vsnip"] = {
     config = conf.vim_vsnip
 }
 
+completion["windwp/nvim-autopairs"] = {
+    after = "nvim-treesitter",
+    config = conf.auto_pairs
+}
+
 completion["nvim-telescope/telescope.nvim"] = {
-    cmd = "Telescope",
+    cmd = {"Telescope"},
+    module = "plenary.nvim",
     config = conf.telescope,
     requires = {
-        {"nvim-lua/popup.nvim", opt = true},
-        {"nvim-lua/plenary.nvim", opt = true},
-        {"nvim-telescope/telescope-fzy-native.nvim", opt = true}
+        {"nvim-lua/popup.nvim"},
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-telescope/telescope-fzy-native.nvim"}
     }
 }
 
