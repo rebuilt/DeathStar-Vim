@@ -7,7 +7,7 @@ tools["kristijanhusak/vim-dadbod-ui"] = {
     requires = {{"tpope/vim-dadbod", opt = true}}
 }
 
-tools["glepnir/prodoc.nvim"] = {
+tools["tpope/vim-commentary"] = {
     event = "BufReadPre"
 }
 

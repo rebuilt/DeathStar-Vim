@@ -67,4 +67,12 @@ ui["phaazon/hop.nvim"] = {
         vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>lua require'hop'.hint_words()<cr>", {})
     end
 }
+
+ui["kosayoda/nvim-lightbulb"] = {
+    event = {"BufEnter"},
+    config = function()
+        vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+    end
+}
+
 return ui
