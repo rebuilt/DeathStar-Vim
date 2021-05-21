@@ -2,12 +2,13 @@ local ui = {}
 local conf = require("modules.ui.config")
 
 ui["christianchiarulli/nvcode-color-schemes.vim"] = {
-  event = "BufEnter",
+  event = "VimEnter",
     config = [[vim.cmd('colorscheme lunar')]]
 }
 
 ui["glepnir/galaxyline.nvim"] = {
     branch = "main",
+    event = "VimEnter",
     config = conf.galaxyline,
     requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
 }
@@ -19,7 +20,7 @@ ui["glepnir/galaxyline.nvim"] = {
 -- }
 
 ui["akinsho/nvim-bufferline.lua"] = {
-  event = "BufEnter",
+  event = "VimEnter",
     config = conf.nvim_bufferline,
     requires = {"kyazdani42/nvim-web-devicons",event = "ColorScheme"}
 }
