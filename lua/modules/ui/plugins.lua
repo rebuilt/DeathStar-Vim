@@ -37,7 +37,7 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 
 ui["folke/which-key.nvim"] = {
-  event = "BufEnter",
+  event ={ "VimEnter", "BufReadPre"},
     config = conf.which_key
 }
 
