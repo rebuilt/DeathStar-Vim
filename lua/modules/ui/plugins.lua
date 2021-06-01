@@ -44,7 +44,7 @@ ui["folke/which-key.nvim"] = {
 -- yay -S glow
 ui["npxbr/glow.nvim"] = {
     ft = { "markdown"},
-    run = "yay -S glow"
+    -- run = "yay -S glow"
 }
 
 ui["kevinhwang91/nvim-bqf"] = {
@@ -59,12 +59,13 @@ ui["folke/trouble.nvim"] = {
 }
 
 ui["phaazon/hop.nvim"] = {
-    keys = {"<leader>hh", "<leader>H"},
+    keys = {"<leader>hh", "<leader>H", "gl"},
     config = function()
         -- you can configure Hop the way you like here; see :h hop-config
         --   require "hop.nvim".setup {keys = "etovxqpdygfblzhckisuran"}
         vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>lua require'hop'.hint_words()<cr>", {})
         vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>lua require'hop'.hint_words()<cr>", {})
+        vim.api.nvim_set_keymap("n", "gl", "<cmd>lua require'hop'.hint_words()<cr>", {})
     end
 }
 
