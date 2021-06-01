@@ -2,12 +2,11 @@ local editor = {}
 local conf = require("modules.editor.config")
 
 editor["rhysd/accelerated-jk"] = {
-  keys = "jk"
+    opt = true
 }
 
 editor["norcalli/nvim-colorizer.lua"] = {
-  -- event = "BufEnter",
-  --   ft = {"html", "css", "sass", "vim", "typescript", "typescriptreact","scss", "eruby"},
+    ft = {"html", "css", "sass", "vim", "typescript", "typescriptreact","scss", "eruby"},
     config = conf.nvim_colorizer
 }
 
@@ -20,20 +19,20 @@ editor["tpope/vim-surround"] = {
     event = "BufEnter"
 }
 
-editor["tpope/vim-commentary"] = {
-    event = "BufEnter"
-}
+ editor["tpope/vim-commentary"] = {
+     event = "BufEnter"
+ }
 
-editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
-  after = "vim-commentary",
-  config = conf.commentstring,
-}
+ editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
+     after = "vim-commentary",
+     config = conf.commentstring
+ }
 
 editor["kana/vim-niceblock"] = {
     opt = true
 }
 
-editor["airblade/vim-rooter"] = { event = "BufEnter"}
+editor["airblade/vim-rooter"] = {event = "BufEnter"}
 
 editor["sbdchd/neoformat"] = {
     cmd = "Neoformat",
