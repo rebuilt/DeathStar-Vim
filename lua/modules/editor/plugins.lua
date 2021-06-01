@@ -35,4 +35,12 @@ editor["ray-x/lsp_signature.nvim"] = {
   config = function() require'lsp_signature'.on_attach() end
 }
 
+editor["andymass/vim-matchup"] = {
+    keys = "%"
+}
+
+editor["f-person/git-blame.nvim"] = {
+    cmd = "GitBlameToggle",
+    config = conf.gitblame
+}
 return editor

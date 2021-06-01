@@ -2,7 +2,7 @@ local completion = {}
 local conf = require("modules.completion.config")
 
 completion["neovim/nvim-lspconfig"] = {
-    event = "BufReadPre",
+    event = "BufEnter",
     config = conf.nvim_lsp
 }
 completion["kabouzeid/nvim-lspinstall"] = {
@@ -25,13 +25,11 @@ completion["hrsh7th/vim-vsnip"] = {
 }
 
 completion["windwp/nvim-autopairs"] = {
-    after = "nvim-treesitter",
+    event = "InsertEnter",
     config = conf.auto_pairs
 }
 
 completion["nvim-telescope/telescope.nvim"] = {
-    cmd = {"Telescope"},
-    module = "plenary.nvim",
     config = conf.telescope,
     requires = {
         {"nvim-lua/popup.nvim"},
