@@ -14,7 +14,7 @@ ui["glepnir/galaxyline.nvim"] = {
 }
 
 -- ui["lukas-reineke/indent-blankline.nvim"] = {
---     event = "BufRead",
+--     event = "BufEnter",
 --     branch = "lua",
 --     config = conf.indent_blakline
 -- }
@@ -39,7 +39,7 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 
 ui["folke/which-key.nvim"] = {
-  event ={ "VimEnter", "BufReadPre"},
+  event ={"BufEnter"},
     config = conf.which_key
 }
 
