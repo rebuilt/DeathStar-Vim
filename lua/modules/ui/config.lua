@@ -197,8 +197,8 @@ function config.which_key()
                     "Branches"
                 },
                 B = {
-                  ":GitBlameToggle<cr>", 
-                  "Blame"
+                    ":GitBlameToggle<cr>",
+                    "Blame"
                 },
                 g = {
                     "<cmd>Telescope git_commits<cr>",
@@ -217,6 +217,13 @@ function config.which_key()
                 c = {"<cmd>PackerCompile<cr>", "Compile"}
             },
             B = {"<cmd>Telescope buffers<cr>", "Buffers"},
+            b = {
+                name = "Bracey",
+                b = {":Bracey<cr>", "Live Server"},
+                s = {":BraceyStop<cr>", "Stop"},
+                r = {":BraceyReload<cr>", "Reload"},
+                e = {":BraceyEval<cr>", "Eval"}
+            },
             f = {
                 name = "Find",
                 b = {"<cmd>Telescope file_browser<cr>", "File Browser"},
@@ -229,6 +236,10 @@ function config.which_key()
                 q = {"<cmd>Telescope quickfix<cr>", "quickfix"},
                 d = {"<cmd>Telescope dotfiles path=" .. os.getenv("HOME") .. "/.dotfiles<cr>", "Neovim config"},
                 s = {"<cmd>Telescope gosource<cr>", "Go Source"}
+            },
+            F = {
+                ":Neoformat<cr>",
+                "Format"
             },
             M = {"<cmd>Telescope marks<cr>", "Marks"},
             v = {"<cmd>Vista!!<cr>", "Vista"},
