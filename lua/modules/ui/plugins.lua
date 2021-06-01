@@ -26,7 +26,6 @@ ui["akinsho/nvim-bufferline.lua"] = {
 
 ui["kyazdani42/nvim-tree.lua"] = {
     cmd = {"NvimTreeToggle", "NvimTreeRefresh", "NvimTreeFindFile"},
-    event = {"BufEnter"},
     config = conf.nvim_tree,
     requires = {"kyazdani42/nvim-web-devicons"}
 }
@@ -44,12 +43,12 @@ ui["folke/which-key.nvim"] = {
 
 -- yay -S glow
 ui["npxbr/glow.nvim"] = {
-    ft = {"md", "markdown"},
+    ft = { "markdown"},
     run = "yay -S glow"
 }
 
 ui["kevinhwang91/nvim-bqf"] = {
-    module = "nvim-treesitter",
+    event = "QuickFixCmdPre",
     config = conf.bqf
 }
 
