@@ -2,15 +2,14 @@ local ui = {}
 local conf = require("modules.ui.config")
 
 ui["christianchiarulli/nvcode-color-schemes.vim"] = {
-  event = "VimEnter",
     config = [[vim.cmd('colorscheme lunar')]]
 }
 
 ui["glepnir/galaxyline.nvim"] = {
     branch = "main",
-    event = "VimEnter",
+    event = "BufEnter",
     config = conf.galaxyline,
-    requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
+    requires = {"kyazdani42/nvim-web-devicons"}
 }
 
 -- ui["lukas-reineke/indent-blankline.nvim"] = {
@@ -20,16 +19,16 @@ ui["glepnir/galaxyline.nvim"] = {
 -- }
 
 ui["akinsho/nvim-bufferline.lua"] = {
-  event = "VimEnter",
+    event = "BufEnter",
     config = conf.nvim_bufferline,
-    requires = {"kyazdani42/nvim-web-devicons",event = "ColorScheme"}
+    requires = {"kyazdani42/nvim-web-devicons"}
 }
 
 ui["kyazdani42/nvim-tree.lua"] = {
-    cmd = {"NvimTreeToggle","NvimTreeRefresh", "NvimTreeFindFile"},
+    cmd = {"NvimTreeToggle", "NvimTreeRefresh", "NvimTreeFindFile"},
     event = {"BufEnter"},
     config = conf.nvim_tree,
-    requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
+    requires = {"kyazdani42/nvim-web-devicons"}
 }
 
 ui["lewis6991/gitsigns.nvim"] = {
@@ -39,34 +38,29 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 
 ui["folke/which-key.nvim"] = {
-  event ={"BufEnter"},
+    event = {"BufEnter"},
     config = conf.which_key
 }
 
 -- yay -S glow
 ui["npxbr/glow.nvim"] = {
-    ft = {"md", "markdown"}
-}
-
--- npm install -g live-server
--- pacman -S pandoc
-ui["davidgranstrom/nvim-markdown-preview"] = {
-    ft = {"md", "markdown"}
+    ft = {"md", "markdown"},
+    run = "yay -S glow"
 }
 
 ui["kevinhwang91/nvim-bqf"] = {
-  module = "nvim-treesitter",
+    module = "nvim-treesitter",
     config = conf.bqf
 }
 
 ui["folke/trouble.nvim"] = {
-  cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"},
-    requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"},
+    cmd = {"Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh"},
+    requires = {"kyazdani42/nvim-web-devicons"},
     config = conf.trouble
 }
 
 ui["phaazon/hop.nvim"] = {
-  keys = {"<leader>hh", "<leader>H"},
+    keys = {"<leader>hh", "<leader>H"},
     config = function()
         -- you can configure Hop the way you like here; see :h hop-config
         --   require "hop.nvim".setup {keys = "etovxqpdygfblzhckisuran"}
