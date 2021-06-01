@@ -23,12 +23,13 @@ tools["liuchengxu/vista.vim"] = {
 --   end
 -- }
 
--- tools['iamcco/markdown-preview.nvim'] = {
---   cmd = 'MarkdownPreview',
---   config = function ()
---     vim.g.mkdp_auto_start = 1
---   end
--- }
+tools['iamcco/markdown-preview.nvim'] = {
+  ft = "markdown",
+  run = ':call mkdp#util#install()',
+  config = function ()
+    vim.g.mkdp_auto_start = 1
+  end
+}
 
 tools["tpope/vim-fugitive"] = {
   cmd = {"G", "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename", "Glgrep", "Gedit"}
