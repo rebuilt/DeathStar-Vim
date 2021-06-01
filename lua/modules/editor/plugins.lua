@@ -7,7 +7,7 @@ editor["rhysd/accelerated-jk"] = {
 
 editor["norcalli/nvim-colorizer.lua"] = {
     ft = {"html", "css", "sass", "vim", "typescript", "typescriptreact", "scss", "eruby"},
-    config = conf.nvim_colorizer
+    config = conf.nvim_colorizer,
 }
 
 editor["itchyny/vim-cursorword"] = {
@@ -21,7 +21,7 @@ editor["tpope/vim-surround"] = {
 
 editor["tpope/vim-commentary"] = {
     keys = "g",
-    requires = "JoosepAlviste/nvim-ts-context-commentstring"
+    requires = {"JoosepAlviste/nvim-ts-context-commentstring", keys = "g"}
 }
 
 editor["kana/vim-niceblock"] = {
