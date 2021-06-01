@@ -6,7 +6,7 @@ editor["rhysd/accelerated-jk"] = {
 }
 
 editor["norcalli/nvim-colorizer.lua"] = {
-    ft = {"html", "css", "sass", "vim", "typescript", "typescriptreact","scss", "eruby"},
+    ft = {"html", "css", "sass", "vim", "typescript", "typescriptreact", "scss", "eruby"},
     config = conf.nvim_colorizer
 }
 
@@ -16,17 +16,13 @@ editor["itchyny/vim-cursorword"] = {
 }
 
 editor["tpope/vim-surround"] = {
-    event = "BufEnter"
+    keys = "cdy"
 }
 
- editor["tpope/vim-commentary"] = {
-     event = "BufEnter"
- }
-
- editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
-     after = "vim-commentary",
-     config = conf.commentstring
- }
+editor["tpope/vim-commentary"] = {
+    keys = "g",
+    requires = "JoosepAlviste/nvim-ts-context-commentstring"
+}
 
 editor["kana/vim-niceblock"] = {
     opt = true
