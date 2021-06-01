@@ -22,6 +22,10 @@ editor["tpope/vim-surround"] = {
 editor["tpope/vim-commentary"] = {
     event = "BufReadPre"
 }
+editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
+  after = "vim-commentary",
+  config = conf.commentstring,
+}
 
 editor["kana/vim-niceblock"] = {
     opt = true
