@@ -6,7 +6,7 @@ completion["neovim/nvim-lspconfig"] = {
     config = conf.nvim_lsp
 }
 completion["kabouzeid/nvim-lspinstall"] = {
-    after = "nvim-lspconfig",
+    cmd = "LspInstall",
     config = conf.nvim_lspinstall
 }
 
@@ -39,7 +39,7 @@ completion["nvim-telescope/telescope.nvim"] = {
 }
 
 completion["mattn/emmet-vim"] = {
-    event = "InsertEnter",
+    -- event = "InsertEnter",
     ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
     config = conf.emmet
 }
