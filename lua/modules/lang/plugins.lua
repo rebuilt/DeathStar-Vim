@@ -2,8 +2,7 @@ local lang = {}
 local conf = require("modules.lang.config")
 
 lang["nvim-treesitter/nvim-treesitter"] = {
-    event = "BufRead",
-    -- after = "telescope.nvim",
+    run = ":TSUpdate",
     config = conf.nvim_treesitter
 }
 

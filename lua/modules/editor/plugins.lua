@@ -19,6 +19,10 @@ editor["tpope/vim-surround"] = {
     event = "BufRead"
 }
 
+editor["tpope/vim-commentary"] = {
+    event = "BufReadPre"
+}
+
 editor["kana/vim-niceblock"] = {
     opt = true
 }
@@ -31,8 +35,10 @@ editor["sbdchd/neoformat"] = {
 }
 
 editor["ray-x/lsp_signature.nvim"] = {
-  after = "nvim-treesitter",
-  config = function() require'lsp_signature'.on_attach() end
+    after = "nvim-treesitter",
+    config = function()
+        require "lsp_signature".on_attach()
+    end
 }
 
 editor["andymass/vim-matchup"] = {

@@ -26,13 +26,14 @@ ui["akinsho/nvim-bufferline.lua"] = {
 }
 
 ui["kyazdani42/nvim-tree.lua"] = {
-    cmd = {"NvimTreeToggle", "NvimTreeOpen"},
+    cmd = {"NvimTreeToggle","NvimTreeRefresh", "NvimTreeFindFile"},
+    event = {"BufEnter"},
     config = conf.nvim_tree,
     requires = {"kyazdani42/nvim-web-devicons", event = "ColorScheme"}
 }
 
 ui["lewis6991/gitsigns.nvim"] = {
-    event = {"BufRead", "BufNewFile"},
+    event = {"BufEnter"},
     config = conf.gitsigns,
     requires = {"nvim-lua/plenary.nvim", opt = true}
 }

@@ -7,10 +7,6 @@ tools["kristijanhusak/vim-dadbod-ui"] = {
     requires = {{"tpope/vim-dadbod", opt = true}}
 }
 
-tools["tpope/vim-commentary"] = {
-    event = "BufReadPre"
-}
-
 tools["unblevable/quick-scope"] = {
   keys = {"f","F","t","T"},
 }
