@@ -56,7 +56,7 @@ local enhance_attach = function(client, bufnr)
 end
 
 lspconfig.gopls.setup {
-    cmd = {"gopls", "--remote=auto"},
+    cmd = {"/home/nelson/.local/share/nvim/lspinstall/go/gopls", "--remote=auto"},
     on_attach = enhance_attach,
     capabilities = capabilities,
     init_options = {
@@ -125,10 +125,6 @@ lspconfig.sumneko_lua.setup {
             }
         }
     }
-}
-
-require'lspconfig'.gopls.setup{
-    cmd = {"/home/" .. USER .. "/.local/share/nvim/lspinstall/go/gopls"},
 }
 
 lspconfig.efm.setup {
