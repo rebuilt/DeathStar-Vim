@@ -14,15 +14,7 @@ local plug_map = {
     ),
     ["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
     ["n|Y"] = map_cmd("y$"):with_noremap():with_silent(),
-    -- Packer
-    --     ["n|<leader>pu"] = map_cr("PackerUpdate"):with_silent():with_noremap():with_nowait(),
-    --     ["n|<leader>pi"] = map_cr("PackerInstall"):with_silent():with_noremap():with_nowait(),
-    --     ["n|<leader>ps"] = map_cr("PackerSync"):with_silent():with_noremap():with_nowait(),
-    --     ["n|<leader>pc"] = map_cr("PackerCompile"):with_silent():with_noremap():with_nowait(),
-    -- Lsp mapp work when insertenter and lsp start
-    --     ["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
-    --     ["n|<leader>ll"] = map_cr("LspLog"):with_noremap():with_silent():with_nowait(),
-    --     ["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+
     ["n|<C-f>"] = map_cmd("<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>"):with_silent():with_noremap(
 
     ):with_nowait(),
@@ -32,23 +24,6 @@ local plug_map = {
     ["n|[e"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
     ["n|]e"] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
     ["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
-    --     ["n|<Leader>la"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
-    --     ["v|<Leader>la"] = map_cu("Lspsaga range_code_action"):with_noremap():with_silent(),
-    --     ["n|<Leader>ld"] = map_cr("Lspsaga preview_definition"):with_noremap():with_silent(),
-    --     ["n|<Leader>lD"] = map_cmd("<cmd>lua vim.lsp.buf.implementation()<CR>"):with_noremap():with_silent(),
-    --     ["n|<Leader>ls"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
-    --     ["n|<Leader>lr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
-    --     ["n|<Leader>lh"] = map_cr("Lspsaga lsp_finder"):with_noremap():with_silent(),
-    --     ["n|<Leader>lt"] = map_cmd("<cmd>lua vim.lsp.buf.type_definition()<CR>"):with_noremap():with_silent(),
-    --     ["n|<Leader>lw"] = map_cmd("<cmd>lua vim.lsp.buf.workspace_symbol()<CR>"):with_noremap():with_silent(),
-    --     ["n|<Leader>le"] = map_cr("Lspsaga show_line_diagnostics"):with_noremap():with_silent(),
-    --     ["n|<leader>lf"] = map_cr("<cmd>lua vim.lsp.buf.formatting()<CR>"):with_noremap():with_silent(),
-    --     ["n|<Leader>ct"] = map_args("Template"),
-    -- Plugin nvim-tree
-    --     ["n|<Leader>e"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
-    -- Plugin DadbodUI
-    --     ["n|<Leader>od"] = map_cr("DBUIToggle"):with_noremap():with_silent(),
-    -- Plugin Floaterm
     ["n|<A-t>"] = map_cu("Lspsaga open_floaterm"):with_noremap():with_silent(),
     ["t|<A-t>"] = map_cu([[<C-\><C-n>:Lspsaga close_floaterm<CR>]]):with_noremap():with_silent(),
     --     ["n|<Leader>g"] = map_cu("Lspsaga open_floaterm lazygit"):with_noremap():with_silent(),
