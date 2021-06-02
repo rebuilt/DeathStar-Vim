@@ -10,7 +10,7 @@ completion["kabouzeid/nvim-lspinstall"] = {
 }
 
 completion["glepnir/lspsaga.nvim"] = {
-    cmd = "Lspsaga"
+  opt = true
 }
 
 completion["hrsh7th/nvim-compe"] = {
