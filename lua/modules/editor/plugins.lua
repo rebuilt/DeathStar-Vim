@@ -16,7 +16,7 @@ editor["itchyny/vim-cursorword"] = {
 }
 
 editor["tpope/vim-surround"] = {
-    keys = "cdy"
+    keys = {"c","d","y"}
 }
 
 editor["tpope/vim-commentary"] = {
