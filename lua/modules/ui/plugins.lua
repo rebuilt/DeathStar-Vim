@@ -1,8 +1,29 @@
 local ui = {}
 local conf = require("modules.ui.config")
 
-ui["christianchiarulli/nvcode-color-schemes.vim"] = {
-    config = [[vim.cmd('colorscheme lunar')]]
+-- ui["christianchiarulli/nvcode-color-schemes.vim"] = {
+--     config = [[vim.cmd('colorscheme lunar')]]
+-- }
+
+-- ui["sainnhe/sonokai"] = {
+--   config = function() 
+--     vim.cmd([[
+--         if has('termguicolors')
+--           set termguicolors
+--         endif
+--         " Available values `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
+--         let g:sonokai_style = 'maia'
+--         let g:sonokai_enable_italic = 1
+--         let g:sonokai_disable_italic_comment = 1
+--         colorscheme sonokai
+-- ]])
+--   end
+-- }
+
+ui["navarasu/onedark.nvim"] = {
+  config = function() 
+    vim.cmd([[ colorscheme onedark ]])
+  end
 }
 
 ui["glepnir/galaxyline.nvim"] = {
@@ -43,7 +64,7 @@ ui["folke/which-key.nvim"] = {
 
 -- yay -S glow
 ui["npxbr/glow.nvim"] = {
-    ft = { "markdown"},
+    ft = {"markdown"}
     -- run = "yay -S glow"
 }
 

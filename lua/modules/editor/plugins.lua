@@ -21,7 +21,7 @@ editor["tpope/vim-surround"] = {
 
 editor["tpope/vim-commentary"] = {
     keys = "g",
-    requires = {"JoosepAlviste/nvim-ts-context-commentstring", keys = "g"}
+    requires = {"JoosepAlviste/nvim-ts-context-commentstring"}
 }
 
 editor["kana/vim-niceblock"] = {
