@@ -11,7 +11,7 @@ end
 local saga = require "lspsaga"
 saga.init_lsp_saga(
     {
-        code_action_icon = "💡"
+        -- code_action_icon = "💡"
     }
 )
 
@@ -127,6 +127,10 @@ lspconfig.sumneko_lua.setup {
     }
 }
 
+require'lspconfig'.gopls.setup{
+    cmd = {"/home/" .. USER .. "/.local/share/nvim/lspinstall/go/gopls"},
+}
+
 lspconfig.efm.setup {
     cmd = {"/home/" .. USER .. "/.local/share/nvim/lspinstall/efm/efm-langserver"},
     init_options = {documentFormatting = true},
@@ -154,7 +158,7 @@ local servers = {
     "pyright",
     "solargraph",
     "emmet_ls",
-    "html"
+    "html",
 }
 
 for _, server in ipairs(servers) do
