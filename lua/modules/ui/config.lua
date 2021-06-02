@@ -102,11 +102,6 @@ function config.gitsigns()
             buffer = true,
             ["n ]g"] = {expr = true, '&diff ? \']g\' : \'<cmd>lua require"gitsigns".next_hunk()<CR>\''},
             ["n [g"] = {expr = true, '&diff ? \'[g\' : \'<cmd>lua require"gitsigns".prev_hunk()<CR>\''},
-            ["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-            ["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-            ["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-            ["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-            ["n <leader>gb"] = '<cmd>lua require"gitsigns".blame_line()<CR>',
             -- Text objects
             ["o ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>',
             ["x ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>'
@@ -198,7 +193,7 @@ function config.which_key()
                 },
                 B = {
                     ":GitBlameToggle<cr>",
-                    "Blame"
+                    "Blame toggle"
                 },
                 g = {
                     "<cmd>Telescope git_commits<cr>",
@@ -207,7 +202,12 @@ function config.which_key()
                 G = {
                     "<cmd>Telescope git_bcommits<cr>",
                     "BCommits"
-                }
+                },
+                s =  {'<cmd>lua require"gitsigns".stage_hunk()<CR>', 'Stage hunk'},
+                u =  { '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', 'Unstage hunk'},
+                r =  {'<cmd>lua require"gitsigns".reset_hunk()<CR>', 'Reset hunk'},
+                p =  {'<cmd>lua require"gitsigns".preview_hunk()<CR>', 'Preview hunk'},
+                e =  {'<cmd>lua require"gitsigns".blame_line()<CR>', 'Blame popup'},
             },
             p = {
                 name = "Packer",
@@ -251,9 +251,9 @@ function config.which_key()
                 "<cmd>NvimTreeToggle<cr>",
                 "File Browser"
             },
-            h = {
-                name = "Hunks"
-            },
+            -- h = { "<cmd>lua require'hop'.hint_words()<cr>", "Hop"}, --
+            -- prefer to use gl (go line) to avoid loading hop on BufEnter like
+            -- whichkey
             m = {
                 name = "Markdown",
                 v = {"<cmd>MarkdownPreview<cr>", "Markdown Preview"},
