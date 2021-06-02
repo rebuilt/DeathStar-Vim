@@ -6,7 +6,7 @@ local conf = require("modules.ui.config")
 -- }
 
 -- ui["sainnhe/sonokai"] = {
---   config = function() 
+--   config = function()
 --     vim.cmd([[
 --         if has('termguicolors')
 --           set termguicolors
@@ -21,9 +21,9 @@ local conf = require("modules.ui.config")
 -- }
 
 ui["navarasu/onedark.nvim"] = {
-  config = function() 
-    vim.cmd([[ colorscheme onedark ]])
-  end
+    config = function()
+        vim.cmd([[ colorscheme onedark ]])
+    end
 }
 
 ui["glepnir/galaxyline.nvim"] = {
@@ -69,7 +69,7 @@ ui["npxbr/glow.nvim"] = {
 }
 
 ui["kevinhwang91/nvim-bqf"] = {
-    event = "QuickFixCmdPre",
+    event = "BufEnter",
     config = conf.bqf
 }
 
@@ -80,21 +80,23 @@ ui["folke/trouble.nvim"] = {
 }
 
 ui["phaazon/hop.nvim"] = {
-    keys = {"<leader>hh", "<leader>H", "gl"},
+    -- cmd = {"HopWord", "HopLine", "HopChar1", "HopChar2", "HopPattern"},
+    keys = {"gl", "<Leader>h"},
+    commit = {"e5eb06d"},
+    -- event = "BufEnter",
     config = function()
         -- you can configure Hop the way you like here; see :h hop-config
         --   require "hop.nvim".setup {keys = "etovxqpdygfblzhckisuran"}
-        vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>lua require'hop'.hint_words()<cr>", {})
-        vim.api.nvim_set_keymap("n", "<leader>H", "<cmd>lua require'hop'.hint_words()<cr>", {})
-        vim.api.nvim_set_keymap("n", "gl", "<cmd>lua require'hop'.hint_words()<cr>", {})
+        vim.api.nvim_set_keymap("n", "<Leader>h", "<cmd>lua require'hop'.hint_words()<cr>", {})
+        vim.api.nvim_set_keymap("n", "gl", ":HopWord<cr>", {})
     end
 }
 
-ui["kosayoda/nvim-lightbulb"] = {
-    event = {"BufEnter"},
-    config = function()
-        vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-    end
-}
+-- ui["kosayoda/nvim-lightbulb"] = {
+--     event = {"BufEnter"},
+--     config = function()
+--         vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+--     end
+-- }
 
 return ui
