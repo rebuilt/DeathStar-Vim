@@ -81,22 +81,9 @@ ui["folke/trouble.nvim"] = {
 
 ui["phaazon/hop.nvim"] = {
     -- cmd = {"HopWord", "HopLine", "HopChar1", "HopChar2", "HopPattern"},
+    as = "hop",
     keys = {"gl", "<Leader>h"},
-    commit = {"e5eb06d6f3caff15f3abd35c6c21135f93fa4eb7"},
-    -- event = "BufEnter",
-    config = function()
-        -- you can configure Hop the way you like here; see :h hop-config
-        --   require "hop.nvim".setup {keys = "etovxqpdygfblzhckisuran"}
-        vim.api.nvim_set_keymap("n", "<Leader>h", "<cmd>lua require'hop'.hint_words()<cr>", {})
-        vim.api.nvim_set_keymap("n", "gl", ":HopWord<cr>", {})
-    end
+    config = conf.hop
 }
-
--- ui["kosayoda/nvim-lightbulb"] = {
---     event = {"BufEnter"},
---     config = function()
---         vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
---     end
--- }
 
 return ui
