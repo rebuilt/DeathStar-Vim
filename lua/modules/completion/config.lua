@@ -84,9 +84,6 @@ function config.telescope()
             file_previewer = require "telescope.previewers".vim_buffer_cat.new,
             grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
             qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
-            sort_lastused = true,
-            show_all_buffers = true,
-            selection_strategy = "closest"
         },
         extensions = {
             fzy_native = {

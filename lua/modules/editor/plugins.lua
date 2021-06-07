@@ -24,6 +24,10 @@ editor["tpope/vim-commentary"] = {
     requires = {"JoosepAlviste/nvim-ts-context-commentstring"}
 }
 
+editor["tpope/vim-repeat"] = {
+  event = {"InsertEnter"},
+}
+
 editor["kana/vim-niceblock"] = {
     opt = true
 }
