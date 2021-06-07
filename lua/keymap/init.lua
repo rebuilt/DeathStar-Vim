@@ -37,7 +37,7 @@ local plug_map = {
     ["x|A"] = map_cmd("v:lua.enhance_nice_block('A')"):with_expr(),
 
     -- Personal mappings
-    ["n|<F7>"] = map_cr(":set relativenumber!"):with_silent(),
+    ["n|<F12>"] = map_cr(":set relativenumber!"):with_silent(),
     ["i|jk"] = map_cmd("<ESC>"):with_silent(),
     ["i|kj"] = map_cmd("<ESC>"):with_silent(),
     ["i|jj"] = map_cmd("<ESC>"):with_silent(),
