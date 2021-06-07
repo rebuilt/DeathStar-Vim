@@ -179,35 +179,24 @@ function config.which_key()
             },
             g = {
                 name = "Git",
-                l = {
-                    "<cmd>Lspsaga open_floaterm lazygit<cr>",
-                    "Lazy Git"
-                },
-                o = {
-                    "<cmd>Telescope git_status<cr>",
-                    "Lazy Git"
-                },
-                b = {
-                    "<cmd>Telescope git_branches<cr>",
-                    "Branches"
-                },
-                B = {
-                    ":GitBlameToggle<cr>",
-                    "Blame toggle"
-                },
-                g = {
-                    "<cmd>Telescope git_commits<cr>",
-                    "Commits"
-                },
-                G = {
-                    "<cmd>Telescope git_bcommits<cr>",
-                    "BCommits"
-                },
-                s =  {'<cmd>lua require"gitsigns".stage_hunk()<CR>', 'Stage hunk'},
-                u =  { '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', 'Unstage hunk'},
-                r =  {'<cmd>lua require"gitsigns".reset_hunk()<CR>', 'Reset hunk'},
-                p =  {'<cmd>lua require"gitsigns".preview_hunk()<CR>', 'Preview hunk'},
-                e =  {'<cmd>lua require"gitsigns".blame_line()<CR>', 'Blame popup'},
+                l = {"<cmd>Lspsaga open_floaterm lazygit<cr>", "Lazy Git"},
+                o = {"<cmd>Telescope git_status<cr>", "Git status"},
+                b = {"<cmd>Telescope git_branches<cr>", "Branches"},
+                B = {":GitBlameToggle<cr>", "Blame toggle"},
+                g = {"<cmd>Telescope git_commits<cr>", "Commits"},
+                G = {"<cmd>Telescope git_bcommits<cr>", "BCommits"},
+                s = {'<cmd>lua require"gitsigns".stage_hunk()<CR>', "Stage hunk"},
+                u = {'<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', "Unstage hunk"},
+                r = {'<cmd>lua require"gitsigns".reset_hunk()<CR>', "Reset hunk"},
+                p = {'<cmd>lua require"gitsigns".preview_hunk()<CR>', "Preview hunk"},
+                e = {'<cmd>lua require"gitsigns".blame_line()<CR>', "Blame popup"},
+                f = {
+                    name = "Fugitive",
+                    f = {"<cmd>G<cr>", "fugitive"},
+                    d = {"<cmd>Gdiffsplit<cr>", "Diffsplit"},
+                    r = {"<cmd>Gread<cr>", "Gread"},
+                    a = {"<cmd>Gwrite<cr>", "git add"}
+                }
             },
             p = {
                 name = "Packer",
@@ -244,8 +233,20 @@ function config.which_key()
             M = {"<cmd>Telescope marks<cr>", "Marks"},
             v = {"<cmd>Vista!!<cr>", "Vista"},
             r = {
-                "<cmd> lua require'internal.quickrun'.run_command()<CR>",
-                "Run Command"
+                name = "Rails",
+                m = {"<cmd>Vmodel<cr>", "model"},
+                v = {"<cmd>Vview<cr>", "view"},
+                c = {"<cmd>Vcontroller<cr>", "controller"},
+                -- R = {"<cmd>Rails<cr>", "rails"},
+                -- G = {"<cmd>Generate<cr>", "Generate"},
+                -- E = {"<cmd>Extract<cr>", "Extract"},
+                r = {"<cmd> lua require'internal.quickrun'.run_command()<CR>", "quickrun"},
+                b = {
+                  name = "Bundler",
+                  b = { "<cmd>Bundler", "bundle" },
+                  o = { "<cmd>Bopen<cr>", "open"},
+                  s = { "<cmd>Bsplit<cr>", "split"},
+                }
             },
             e = {
                 "<cmd>NvimTreeToggle<cr>",
@@ -270,8 +271,18 @@ function config.which_key()
             },
             Q = {"<cmd>Telescope quickfix<cr>", "QuickFix"},
             L = {"<cmd>Telescope loclist<cr>", "Location"},
-            s = {"<cmd>set spell<cr>", "SpellCheck"}
-            --             o = {"<cmd>DBUIToggle<cr>", "Dadbod"}
+            s = {"<cmd>set spell<cr>", "SpellCheck"},
+            d = {
+                name = "Debug",
+                b = {":lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint"},
+                B = {":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Set breakpoint"},
+                m = {
+                    ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+                    "Log point message"
+                },
+                r = {":lua require'dap'.repl.open()<CR>", "REPL"},
+                l = {":lua require'dap'.run_last()<CR>", "Run last"}
+            }
         },
         {prefix = "<leader>"}
     )
@@ -304,6 +315,12 @@ end
 
 function config.trouble()
     require("trouble").setup {}
+end
+
+function config.hop()
+    require "hop".setup {keys = "etovxqpdygfblzhckisuran"}
+    vim.api.nvim_set_keymap("n", "<Leader>h", "<cmd>lua require'hop'.hint_words()<cr>", {})
+    vim.api.nvim_set_keymap("n", "gl", ":HopWord<cr>", {})
 end
 
 return config
