@@ -8,7 +8,7 @@ tools["kristijanhusak/vim-dadbod-ui"] = {
 }
 
 tools["unblevable/quick-scope"] = {
-  keys = {"f","F","t","T"},
+    keys = {"f", "F", "t", "T"}
 }
 
 tools["liuchengxu/vista.vim"] = {
@@ -23,20 +23,64 @@ tools["liuchengxu/vista.vim"] = {
 --   end
 -- }
 
-tools['iamcco/markdown-preview.nvim'] = {
-  ft = "markdown",
-  run = ':call mkdp#util#install()',
-  config = function ()
-    vim.g.mkdp_auto_start = 1
-  end
+tools["iamcco/markdown-preview.nvim"] = {
+    ft = "markdown",
+    run = ":call mkdp#util#install()",
+    config = function()
+        vim.g.mkdp_auto_start = 1
+    end
 }
 
 tools["tpope/vim-fugitive"] = {
-  cmd = {"G", "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename", "Glgrep", "Gedit"}
+    cmd = {
+        "G",
+        "Git",
+        "Gdiffsplit",
+        "Gread",
+        "Gwrite",
+        "Ggrep",
+        "GMove",
+        "GDelete",
+        "GBrowse",
+        "GRemove",
+        "GRename",
+        "Glgrep",
+        "Gedit"
+    },
+    ft = {"fugitive"}
+}
+
+tools["tpope/vim-rails"] = {
+    cmd = {
+        "Eview",
+        "Econtroller",
+        "Emodel",
+        "Smodel",
+        "Sview",
+        "Scontroller",
+        "Vmodel",
+        "Vview",
+        "Vcontroller",
+        "Tmodel",
+        "Tview",
+        "Tcontroller",
+        "Rails",
+        "Generate",
+        "Runner",
+        "Extract"
+    }
+}
+
+tools["tpope/vim-bundler"] = {
+  cmd = {"Bundler", "Bopen", "Bsplit", "Btabedit"}
 }
 
 tools["turbio/bracey.vim"] = {
-  cmd = {"Bracey","BracyStop", "BraceyReload", "BraceyEval"},
-  run = "npm install --prefix server",
+    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
+    run = "npm install --prefix server"
+}
+
+tools["mfussenegger/nvim-dap"] = {
+    config = conf.dap
 }
 return tools
