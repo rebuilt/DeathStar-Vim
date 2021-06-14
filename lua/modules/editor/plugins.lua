@@ -54,4 +54,8 @@ editor["f-person/git-blame.nvim"] = {
     cmd = "GitBlameToggle",
     config = conf.gitblame
 }
+
+editor['christoomey/vim-sort-motion'] = {
+  keys = "gs"
+}
 return editor
