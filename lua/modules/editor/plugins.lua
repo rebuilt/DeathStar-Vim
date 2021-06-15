@@ -28,6 +28,10 @@ editor["tpope/vim-repeat"] = {
   event = {"InsertEnter"},
 }
 
+editor["tpope/vim-apathy"] = {
+  ft =  {"c", "cpp", "go", "javascript", "typescript", "javascriptreact", "typescriptreact", "coffeescript", "lua", "python", "scheme", "bash", "markdown"}
+}
+
 editor["kana/vim-niceblock"] = {
     opt = true
 }
@@ -58,4 +62,6 @@ editor["f-person/git-blame.nvim"] = {
 editor['christoomey/vim-sort-motion'] = {
   keys = "gs"
 }
+
+
 return editor
