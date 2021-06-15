@@ -28,6 +28,11 @@ completion["windwp/nvim-autopairs"] = {
     config = conf.auto_pairs
 }
 
+completion["windwp/nvim-ts-autotag"] = {
+  event = "InsertEnter",
+  config = conf.autotag
+}
+
 completion["nvim-telescope/telescope.nvim"] = {
     config = conf.telescope,
     requires = {
