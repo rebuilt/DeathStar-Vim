@@ -6,12 +6,8 @@ local map_cmd = bind.map_cmd
 require("keymap.config")
 
 local plug_map = {
-    ["i|<TAB>"] = map_cmd("v:lua.tab_complete()"):with_expr():with_silent(),
-    ["i|<S-TAB>"] = map_cmd("v:lua.s_tab_complete()"):with_silent():with_expr(),
-    -- person keymap
-    ["n|mf"] = map_cr("<cmd>lua require('internal.fsevent').file_event()<CR>"):with_silent():with_nowait():with_noremap(
-
-    ),
+    -- glepnir keymap
+    ["n|mf"] = map_cr("<cmd>lua require('internal.fsevent').file_event()<CR>"):with_silent():with_nowait():with_noremap(),
     ["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
     ["n|Y"] = map_cmd("y$"):with_noremap():with_silent(),
 
@@ -44,7 +40,9 @@ local plug_map = {
     ["n|<ESC>"] = map_cmd(":nohls<ESC>"):with_silent(),
     ["n|<TAB>"] = map_cr(":bnext"):with_silent(),
     ["n|<S-TAB>"] = map_cr(":bprevious"):with_silent(),
-    ["n|<S-x>"] = map_cr(":bd"):with_silent()
+    ["n|<S-x>"] = map_cr(":bd"):with_silent(),
+    ["i|<TAB>"] = map_cmd("v:lua.tab_complete()"):with_expr():with_silent(),
+    ["i|<S-TAB>"] = map_cmd("v:lua.s_tab_complete()"):with_silent():with_expr(),
 }
 
 bind.nvim_load_mapping(plug_map)
