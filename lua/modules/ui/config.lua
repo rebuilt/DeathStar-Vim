@@ -139,17 +139,17 @@ function config.indent_blakline()
     vim.g.indent_blankline_show_trailing_blankline_indent = false
     vim.g.indent_blankline_show_current_context = true
     vim.g.indent_blankline_context_patterns = {
-        "class",
-        "function",
-        "method",
-        "block",
-        "list_literal",
-        "selector",
         "^if",
         "^table",
+        "block",
+        "class",
+        "for",
+        "function",
         "if_statement",
+        "list_literal",
+        "method",
+        "selector",
         "while",
-        "for"
     }
     -- because lazy load indent-blankline so need readd this autocmd
     vim.cmd("autocmd CursorMoved * IndentBlanklineRefresh")
@@ -163,84 +163,79 @@ function config.which_key()
         {
             l = {
                 name = "LSP",
-                i = {"<cmd>LspInfo<cr>", "LspInfo"},
-                l = {"<cmd>LspLog<cr>", "LspLog"},
-                r = {"<cmd>Lspsaga rename<cr>", "Rename"},
                 a = {"<cmd>Lspsaga code_action<cr>", "Code Action"},
                 d = {"<cmd>Lspsaga preview_definition<cr>", "Definition"},
                 D = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation"},
-                s = {"<cmd>Lspsaga signature_help<cr>", "Signature Help"},
-                h = {"<cmd>Lspsaga lsp_finder<cr>", "Lsp Finder"},
-                t = {"<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition"},
-                w = {"<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", "Workspace Symbol"},
                 e = {"<cmd>Lspsaga show_line_diagnostics<cr>", "Line Diagnostics"},
                 f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
-                R = {"<cmd>TroubleToggle lsp_refences<cr>", "References"}
+                h = {"<cmd>Lspsaga lsp_finder<cr>", "Lsp Finder"},
+                i = {"<cmd>LspInfo<cr>", "LspInfo"},
+                l = {"<cmd>LspLog<cr>", "LspLog"},
+                r = {"<cmd>Lspsaga rename<cr>", "Rename"},
+                R = {"<cmd>TroubleToggle lsp_refences<cr>", "References"},
+                s = {"<cmd>Lspsaga signature_help<cr>", "Signature Help"},
+                t = {"<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition"},
+                w = {"<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", "Workspace Symbol"},
             },
             g = {
                 name = "Git",
-                l = {"<cmd>Lspsaga open_floaterm lazygit<cr>", "Lazy Git"},
-                o = {"<cmd>Telescope git_status<cr>", "Git status"},
                 b = {"<cmd>Telescope git_branches<cr>", "Branches"},
                 B = {":GitBlameToggle<cr>", "Blame toggle"},
-                g = {"<cmd>Telescope git_commits<cr>", "Commits"},
+                e = {'<cmd>lua require"gitsigns".blame_line()<CR>', "Blame popup"},
                 G = {"<cmd>Telescope git_bcommits<cr>", "BCommits"},
+                g = {"<cmd>Telescope git_commits<cr>", "Commits"},
+                l = {"<cmd>Lspsaga open_floaterm lazygit<cr>", "Lazy Git"},
+                o = {"<cmd>Telescope git_status<cr>", "Git status"},
+                p = {'<cmd>lua require"gitsigns".preview_hunk()<CR>', "Preview hunk"},
+                r = {'<cmd>lua require"gitsigns".reset_hunk()<CR>', "Reset hunk"},
                 s = {'<cmd>lua require"gitsigns".stage_hunk()<CR>', "Stage hunk"},
                 u = {'<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', "Unstage hunk"},
-                r = {'<cmd>lua require"gitsigns".reset_hunk()<CR>', "Reset hunk"},
-                p = {'<cmd>lua require"gitsigns".preview_hunk()<CR>', "Preview hunk"},
-                e = {'<cmd>lua require"gitsigns".blame_line()<CR>', "Blame popup"},
                 f = {
                     name = "Fugitive",
-                    f = {"<cmd>G<cr>", "fugitive"},
+                    a = {"<cmd>Gwrite<cr>", "git add"},
                     d = {"<cmd>Gdiffsplit<cr>", "Diffsplit"},
+                    f = {"<cmd>G<cr>", "fugitive"},
                     r = {"<cmd>Gread<cr>", "Gread"},
-                    a = {"<cmd>Gwrite<cr>", "git add"}
                 }
             },
             p = {
                 name = "Packer",
-                u = {"<cmd>PackerUpdate<cr>", "Update"},
+                c = {"<cmd>PackerCompile<cr>", "Compile"},
                 i = {"<cmd>PackerInstall<cr>", "Install"},
+                r = {":luafile %<cr>", "Reload"},
                 s = {"<cmd>PackerSync<cr>", "Sync"},
-                c = {"<cmd>PackerCompile<cr>", "Compile"}
+                u = {"<cmd>PackerUpdate<cr>", "Update"},
             },
             B = {"<cmd>Telescope buffers<cr>", "Buffers"},
             b = {
                 name = "Bracey",
                 b = {":Bracey<cr>", "Live Server"},
-                s = {":BraceyStop<cr>", "Stop"},
+                e = {":BraceyEval<cr>", "Eval"},
                 r = {":BraceyReload<cr>", "Reload"},
-                e = {":BraceyEval<cr>", "Eval"}
+                s = {":BraceyStop<cr>", "Stop"},
             },
             f = {
                 name = "Find",
                 b = {"<cmd>Telescope file_browser<cr>", "File Browser"},
+                c = {"<cmd>Telescope git_commits<cr>", "Commits"},
+                d = {"<cmd>Telescope dotfiles path=" .. os.getenv("HOME") .. "/.dotfiles<cr>", "Neovim config"},
                 f = {"<cmd>Telescope find_files find_command=rg,--hidden,--files prompt_prefix=🔍<cr>", "File"},
                 g = {"<cmd>Telescope git_files<cr>", "Git files"},
-                w = {"<cmd>Telescope live_grep<cr>", "Word"},
-                c = {"<cmd>Telescope git_commits<cr>", "Commits"},
-                t = {"<cmd>Telescope help_tags<cr>", "Tags"},
                 j = {"<cmd>Telescope jumplist<cr>", "Jumplist"},
                 q = {"<cmd>Telescope quickfix<cr>", "quickfix"},
-                d = {"<cmd>Telescope dotfiles path=" .. os.getenv("HOME") .. "/.dotfiles<cr>", "Neovim config"},
-                s = {"<cmd>Telescope gosource<cr>", "Go Source"}
+                s = {"<cmd>Telescope gosource<cr>", "Go Source"},
+                t = {"<cmd>Telescope help_tags<cr>", "Tags"},
+                w = {"<cmd>Telescope live_grep<cr>", "Word"},
             },
-            F = {
-                ":Neoformat<cr>",
-                "Format"
-            },
+            F = { ":Neoformat<cr>", "Format" },
             M = {"<cmd>Telescope marks<cr>", "Marks"},
             v = {"<cmd>Vista!!<cr>", "Vista"},
             r = {
                 name = "Rails",
-                m = {"<cmd>Vmodel<cr>", "model"},
-                v = {"<cmd>Vview<cr>", "view"},
                 c = {"<cmd>Vcontroller<cr>", "controller"},
-                -- R = {"<cmd>Rails<cr>", "rails"},
-                -- G = {"<cmd>Generate<cr>", "Generate"},
-                -- E = {"<cmd>Extract<cr>", "Extract"},
+                m = {"<cmd>Vmodel<cr>", "model"},
                 r = {"<cmd> lua require'internal.quickrun'.run_command()<CR>", "quickrun"},
+                v = {"<cmd>Vview<cr>", "view"},
                 b = {
                   name = "Bundler",
                   b = { "<cmd>Bundler", "bundle" },
@@ -257,31 +252,28 @@ function config.which_key()
             -- whichkey
             m = {
                 name = "Markdown",
+                g = {"<cmd>Glow<cr>", "Glow"},
                 v = {"<cmd>MarkdownPreview<cr>", "Markdown Preview"},
-                g = {"<cmd>Glow<cr>", "Glow"}
             },
             R = {"<cmd>Telescope registers<cr>", "Registers"},
             x = {
                 name = "Trouble",
-                x = {"<cmd>TroubleToggle<cr>", "Trouble"},
-                w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
                 d = {"<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Document Diagnostics"},
+                l = {"<cmd>TroubleToggle loclist<cr>", "LocationList"},
                 q = {"<cmd>TroubleToggle quickfix<cr>", "QuickFix"},
-                l = {"<cmd>TroubleToggle loclist<cr>", "LocationList"}
+                w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
+                x = {"<cmd>TroubleToggle<cr>", "Trouble"},
             },
             Q = {"<cmd>Telescope quickfix<cr>", "QuickFix"},
             L = {"<cmd>Telescope loclist<cr>", "Location"},
             s = {"<cmd>set spell<cr>", "SpellCheck"},
             d = {
                 name = "Debug",
-                b = {":lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint"},
                 B = {":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Set breakpoint"},
-                m = {
-                    ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-                    "Log point message"
-                },
+                b = {":lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint"},
+                l = {":lua require'dap'.run_last()<CR>", "Run last"},
+                m = { ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", "Log point message" },
                 r = {":lua require'dap'.repl.open()<CR>", "REPL"},
-                l = {":lua require'dap'.run_last()<CR>", "Run last"}
             }
         },
         {prefix = "<leader>"}

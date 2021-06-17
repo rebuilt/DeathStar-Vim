@@ -99,4 +99,12 @@ function config.nvim_lspinstall()
     -- 	end
 end
 
+function config.autotag()
+require'nvim-treesitter.configs'.setup{
+  autotag = {
+    enable = true
+  }
+}
+end
+
 return config
