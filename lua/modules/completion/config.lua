@@ -5,7 +5,7 @@ function config.nvim_lsp()
 end
 
 function config.nvim_compe()
-    require "compe".setup {
+    require"compe".setup {
         enabled = true,
         debug = false,
         min_length = 1,
@@ -26,9 +26,7 @@ function config.nvim_compe()
 end
 
 function config.auto_pairs()
-    if not packer_plugins["telescope.nvim"].loaded then
-        vim.cmd [[packadd telescope.nvim]]
-    end
+    if not packer_plugins["telescope.nvim"].loaded then vim.cmd [[packadd telescope.nvim]] end
     local remap = vim.api.nvim_set_keymap
     local npairs = require("nvim-autopairs")
     npairs.setup()
@@ -50,14 +48,11 @@ function config.auto_pairs()
 
     remap("i", "<CR>", "v:lua.MUtils.completion_confirm()", {expr = true, noremap = true})
 
+    npairs.remove_rule('`', "markdown") -- remove rule (
+
     local endwise = require("nvim-autopairs.ts-rule").endwise
 
-    npairs.add_rules(
-        {
-            endwise("def", "end", nil, nil),
-            endwise("if", "end", nil, nil)
-        }
-    )
+    npairs.add_rules({endwise("def", "end", nil, nil), endwise("if", "end", nil, nil)})
 end
 
 function config.vim_vsnip()
@@ -65,15 +60,9 @@ function config.vim_vsnip()
 end
 
 function config.telescope()
-    if not packer_plugins["plenary.nvim"].loaded then
-        vim.cmd [[packadd plenary.nvim]]
-    end
-    if not packer_plugins["popup.nvim"].loaded then
-        vim.cmd [[packadd popup.nvim]]
-    end
-    if not packer_plugins["telescope-fzy-native.nvim"].loaded then
-        vim.cmd [[packadd telescope-fzy-native.nvim]]
-    end
+    if not packer_plugins["plenary.nvim"].loaded then vim.cmd [[packadd plenary.nvim]] end
+    if not packer_plugins["popup.nvim"].loaded then vim.cmd [[packadd popup.nvim]] end
+    if not packer_plugins["telescope-fzy-native.nvim"].loaded then vim.cmd [[packadd telescope-fzy-native.nvim]] end
     require("telescope").setup {
         defaults = {
             prompt_prefix = "🔭 ",
@@ -81,20 +70,15 @@ function config.telescope()
             selection_caret = " ",
             sorting_strategy = "ascending",
             results_width = 0.6,
-            file_previewer = require "telescope.previewers".vim_buffer_cat.new,
-            grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
-            qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
+            file_previewer = require"telescope.previewers".vim_buffer_cat.new,
+            grep_previewer = require"telescope.previewers".vim_buffer_vimgrep.new,
+            qflist_previewer = require"telescope.previewers".vim_buffer_qflist.new
         },
-        extensions = {
-            fzy_native = {
-                override_generic_sorter = false,
-                override_file_sorter = true
-            }
-        }
+        extensions = {fzy_native = {override_generic_sorter = false, override_file_sorter = true}}
     }
     require("telescope").load_extension("fzy_native")
-    require "telescope".load_extension("dotfiles")
-    require "telescope".load_extension("gosource")
+    require"telescope".load_extension("dotfiles")
+    require"telescope".load_extension("gosource")
 end
 
 function config.emmet()
@@ -105,7 +89,7 @@ function config.emmet()
 end
 
 function config.nvim_lspinstall()
-    require "lspinstall".setup() -- important
+    require"lspinstall".setup() -- important
 
     -- 	local servers = require'lspinstall'.installed_servers()
     -- 	for _, server in pairs(servers) do
