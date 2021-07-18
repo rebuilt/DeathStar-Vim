@@ -1,2 +1,4 @@
--- npm install -g graphql-language-service-cli
-require("lspconfig").graphql.setup { on_attach = require("lsp").common_on_attach }
+require("lang.graphql").format()
+require("lang.graphql").lint()
+require("lang.graphql").lsp()
+require("lang.graphql").dap()

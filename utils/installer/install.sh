@@ -1,5 +1,6 @@
 #!/bin/sh
-
+#Set Variable to master is not set differently
+LVBRANCH="${LVBRANCH:-master}"
 set -o nounset # error when referencing undefined variable
 set -o errexit # exit when command fails
 
@@ -100,13 +101,20 @@ installpacker() {
 
 cloneconfig() {
     echo "Cloning LunarVim configuration"
-    git clone --branch stable https://github.com/ChristianChiarulli/lunarvim.git ~/.config/nvim
-    mv $HOME/.config/nvim/utils/installer/lv-config.example.lua $HOME/.config/nvim/lv-config.lua
-    # mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
-    # nvim -u $HOME/.config/nvim/init.lua +PackerCompile +PackerInstall
-    nvim +PackerCompile +PackerInstall
-    # rm $HOME/.config/nvim/init.lua
-    # mv $HOME/.config/nvim/init.lua.tmp $HOME/.config/nvim/init.lua
+    git clone --branch $LVBRANCH https://github.com/ChristianChiarulli/lunarvim.git ~/.config/nvim
+    cp $HOME/.config/nvim/utils/installer/lv-config.example-no-ts.lua $HOME/.config/nvim/lv-config.lua
+    nvim --headless \
+        +'autocmd User PackerComplete sleep 100m | qall' \
+        +PackerInstall
+
+    nvim --headless \
+        +'autocmd User PackerComplete sleep 100m | qall' \
+        +PackerSync
+
+    echo -e "\nCompile Complete"
+    rm $HOME/.config/nvim/lv-config.lua
+    cp $HOME/.config/nvim/utils/installer/lv-config.example.lua $HOME/.config/nvim/lv-config.lua
+    # nvim --headless -cq ':silent TSUpdate' -cq ':qall' >/dev/null 2>&1
 }
 
 asktoinstallnode() {
@@ -126,38 +134,30 @@ asktoinstallpip() {
 }
 
 installonmac() {
-    brew install ripgrep fzf ranger
+    brew install ripgrep fzf 
     npm install -g tree-sitter-cli
 }
 
-pipinstallueberzug() {
-    which pip3 >/dev/null && pip3 install ueberzug || echo "Not installing ueberzug pip not found"
-}
-
 installonubuntu() {
-    sudo apt install ripgrep fzf ranger
+    sudo apt install ripgrep fzf 
     sudo apt install libjpeg8-dev zlib1g-dev python-dev python3-dev libxtst-dev
-    pip3 install ueberzug
     pip3 install neovim-remote
     npm install -g tree-sitter-cli
 }
 
 installonarch() {
-    sudo pacman -S ripgrep fzf ranger
-    which yay >/dev/null && yay -S python-ueberzug-git || pipinstallueberzug
+    sudo pacman -S ripgrep fzf 
     pip3 install neovim-remote
     npm install -g tree-sitter-cli
 }
 
 installonfedora() {
     sudo dnf groupinstall "X Software Development"
-    sudo dnf install -y fzf ripgrep ranger
-    pip3 install wheel ueberzug
+    sudo dnf install -y fzf ripgrep 
 }
 
 installongentoo() {
-    sudo emerge -avn sys-apps/ripgrep app-shells/fzf app-misc/ranger dev-python/neovim-remote virtual/jpeg sys-libs/zlib
-    pipinstallueberzug
+    sudo emerge -avn sys-apps/ripgrep app-shells/fzf dev-python/neovim-remote virtual/jpeg sys-libs/zlib
     npm install -g tree-sitter-cli
 }
 
@@ -173,6 +173,13 @@ installextrapackages() {
 
 # Welcome
 echo 'Installing LunarVim'
+
+if [[ $* == *--overwrite* ]]; then
+  echo '!!Warning!! -> Removing all nvim related config because of the --overwrite flag'
+  rm -rf "$HOME/.config/nvim"
+  rm -rf "$HOME/.cache/nvim"
+  rm -rf "$HOME/.local/share/nvim/site/pack/packer"
+fi
 
 # move old nvim directory if it exists
 [ -d "$HOME/.config/nvim" ] && moveoldnvim
@@ -202,7 +209,4 @@ else
 fi
 
 echo "I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts"
-
-# echo "I also recommend you add 'set preview_images_method ueberzug' to ~/.config/ranger/rc.conf"
-
 # echo 'export PATH=/home/$USER/.config/lunarvim/utils/bin:$PATH appending to zshrc/bashrc'
