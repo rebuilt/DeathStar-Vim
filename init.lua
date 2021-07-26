@@ -25,8 +25,10 @@ require "keymappings"
 local plugins = require "plugins"
 local plugin_loader = require("plugin-loader").init()
 plugin_loader:load { plugins, lvim.plugins }
+vim.cmd "syntax on" -- enable syntax before sourcing colorscheme to prevent double loading
 vim.g.colors_name = lvim.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
 vim.cmd("colorscheme " .. lvim.colorscheme)
+vim.cmd "syntax off"
 
 local utils = require "lv-utils"
 utils.toggle_autoformat()
