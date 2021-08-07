@@ -94,6 +94,7 @@ end
 function M.common_on_init(client, bufnr)
   if lvim.lsp.on_init_callback then
     lvim.lsp.on_init_callback(client, bufnr)
+    Log:get_default().info "Called lsp.on_init_callback"
     return
   end
 
@@ -109,11 +110,18 @@ end
 function M.common_on_attach(client, bufnr)
   if lvim.lsp.on_attach_callback then
     lvim.lsp.on_attach_callback(client, bufnr)
+    Log:get_default().info "Called lsp.on_init_callback"
   end
   lsp_highlight_document(client)
   add_lsp_buffer_keybindings(bufnr)
   if lvim.lsp.smart_cwd then
     vim.api.nvim_set_current_dir(client.config.root_dir)
+    Log:get_default().info(
+      string.format(
+        "Smart current working directory on.  Changing working directory to LSP root_dir: [%s] ",
+        client.config.root_dir
+      )
+    )
     -- require("core.nvimtree").change_tree_dir(client.config.root_dir)
   end
   require("lsp.null-ls").setup(vim.bo.filetype)
