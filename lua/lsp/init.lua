@@ -118,7 +118,7 @@ function M.common_on_attach(client, bufnr)
     vim.api.nvim_set_current_dir(client.config.root_dir)
     Log:get_default().info(
       string.format(
-        "Smart current working directory on.  Changing working directory to LSP root_dir: [%s] ",
+        "'Smart current working directory' active.  Changing working directory to LSP root_dir: [%s] ",
         client.config.root_dir
       )
     )
